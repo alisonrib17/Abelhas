@@ -75,7 +75,88 @@ def salva_modelo(modelo, nome_arq):
 
 def algoritmos(op, matriz, classes):
 	if op == "svm":
+		tuned_parameters = [{'kernel': ['rbf'], 'gamma': [1e-2,1e-3,1e-4], 'C': [0.001, 0.1, 0.01, 1, 10]}, {'kernel': ['linear'], 'C': [0.001, 0.1, 0.01, 1, 10]}]
+
+		scores = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
+
+		for score in scores:
+		#print("# Tuning hyper-parameters for %s" % score)
+		#print()
+
+		modelo = GridSearchCV(SVC(), tuned_parameters, scoring=score)
+		#clf = RFE(grid, step=1)
+		#modelo.fit(X_train, y_train)
+
+		#print("Best parameters set found on development set:")
+		#print()
+		#print(modelo.best_params_)
+		print()
+		#print("Grid scores on development set:")
+		#print()
+		#means = clf.cv_results_['mean_test_score']
+		#stds = clf.cv_results_['std_test_score']
+		#for mean, std, params in zip(means, stds, clf.cv_results_['params']):
+		#    print("%0.3f (+/-%0.03f) for %r" % (mean, std * 2, params))
+		#print()
+
+		#print("Detailed classification report:")
+		#print()
+		#print("The model is trained on the full development set.")
+		#print("The scores are computed on the full evaluation set.")
+		#print()
+		kfold = KFold(n_splits=5, shuffle=True)
+
+		prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
+
+		#salva_modelo(clf, "modelo_svm.sav")
+	elif op == "lr":
+		#penalty = ['l1', 'l2']
+		#C = [0.001, 0.1, 1, 10, 100,]
+
+		#tuned_parameters = dict(C=C, penalty=penalty)
+		modelo = LogisticRegression()
+
+		kfold = KFold(n_splits=5, shuffle=True)
+
+		prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
+
+		#salva_modelo(modelo, "modelo_lr.sav")
+	elif op == "dtree":
+		modelo = DecisionTreeClassifier()
+
+		kfold = KFold(n_splits=5, shuffle=True)
+
+		prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
+
+		#salva_modelo(modelo, "modelo_dtree.sav")
+	elif op == "rf":
+		modelo = RandomForestClassifier()
+
+		kfold = KFold(n_splits=5, shuffle=True)
+
+		prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
+
+		#salva_modelo(modelo, "modelo_rf.sav")
+	elif op == "ens":
+		svc = SVC(C=0.1, kernel='linear')
+		rf = RandomForestClassifier()
+		lr = LogisticRegression()
+
+		modelo = VotingClassifier(estimators=[('svc', svc), ('rf', rf), ('lr', lr)], voting='hard')
+
+		kfold = KFold(n_splits=5, shuffle=True)
+
+		prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
+
+		#salva_modelo(modelo, "modelo_ensemble.sav")
+	elif op == "lstm":
 		pass
+	elif op == "bilstm":
+		pass
+	elif op == "cnn":
+		pass        
+	else:
+		print("Opção errada!")
 
 	return prediction
 
