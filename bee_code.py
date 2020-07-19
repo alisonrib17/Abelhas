@@ -26,7 +26,8 @@ from imblearn.over_sampling import SMOTE
 from imblearn.under_sampling import RandomUnderSampler
 from sklearn.feature_selection import RFE, SelectFromModel
 from sklearn.feature_selection import SelectKBest, SelectPercentile, chi2
-
+import warnings
+warnings.filterwarnings('ignore')
 
 def salva_modelo(modelo, nome_arq):
 	filename = '/home/alison/Documentos/Projeto/modelos/' + nome_arq
@@ -39,31 +40,11 @@ def algoritmos(op, matriz, classes):
 		scores = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
 
 		for score in scores:
-			#print("# Tuning hyper-parameters for %s" % score)
-			#print()
-
 			modelo = GridSearchCV(SVC(), tuned_parameters, scoring=score)
 			#clf = RFE(grid, step=1)
 			#modelo.fit(X_train, y_train)
-
-			#print("Best parameters set found on development set:")
-			#print()
-			#print(modelo.best_params_)
-			print()
-			#print("Grid scores on development set:")
-			#print()
-			#means = clf.cv_results_['mean_test_score']
-			#stds = clf.cv_results_['std_test_score']
-			#for mean, std, params in zip(means, stds, clf.cv_results_['params']):
-			#    print("%0.3f (+/-%0.03f) for %r" % (mean, std * 2, params))
-			#print()
-
-			#print("Detailed classification report:")
-			#print()
-			#print("The model is trained on the full development set.")
-			#print("The scores are computed on the full evaluation set.")
-			#print()
-			kfold = KFold(n_splits=5, shuffle=True)
+			
+			kfold = KFold(n_splits=8, shuffle=True)
 
 			prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
 
@@ -75,7 +56,7 @@ def algoritmos(op, matriz, classes):
 		#tuned_parameters = dict(C=C, penalty=penalty)
 		modelo = LogisticRegression()
 
-		kfold = KFold(n_splits=5, shuffle=True)
+		kfold = KFold(n_splits=8, shuffle=True)
 
 		prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
 
@@ -83,7 +64,7 @@ def algoritmos(op, matriz, classes):
 	elif op == "dtree":
 		modelo = DecisionTreeClassifier()
 
-		kfold = KFold(n_splits=5, shuffle=True)
+		kfold = KFold(n_splits=8, shuffle=True)
 
 		prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
 
@@ -91,7 +72,7 @@ def algoritmos(op, matriz, classes):
 	elif op == "rf":
 		modelo = RandomForestClassifier()
 
-		kfold = KFold(n_splits=5, shuffle=True)
+		kfold = KFold(n_splits=8, shuffle=True)
 
 		prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
 
@@ -103,7 +84,7 @@ def algoritmos(op, matriz, classes):
 
 		modelo = VotingClassifier(estimators=[('svc', svc), ('rf', rf), ('lr', lr)], voting='hard')
 
-		kfold = KFold(n_splits=5, shuffle=True)
+		kfold = KFold(n_splits=8, shuffle=True)
 
 		prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
 
@@ -122,6 +103,7 @@ def algoritmos(op, matriz, classes):
 def read_dataset():
 	data = pd.read_csv('/home/alison/Documentos/Projeto/datasets/dataset_mfcc.csv', sep=',')
 	#data.head()
+	data = data[data['Annotation'] == 'voo']
 	data = data.drop(['filename', 'Annotation'],axis=1)
 
 	especies_list = data.iloc[:, -1]
@@ -136,10 +118,10 @@ def main():
 	matriz, classes = read_dataset()
 	
 	#algoritmo = "svm"
-	algoritmo = "lr"
+	#algoritmo = "lr"
 	#algoritmo = "rf"
 	#algoritmo = "dtree"
-	#algoritmo = "ens"
+	algoritmo = "ens"
 	#algoritmo = "lstm"
 	#algoritmo = "bilstm"
 	#algoritmo = "cnn"

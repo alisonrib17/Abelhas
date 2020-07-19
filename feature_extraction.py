@@ -60,10 +60,8 @@ def extrai_features():
 				end_index = librosa.time_to_samples(end)
 
 				required_slice = y[start_index:end_index]
-				#D_bee = librosa.stft(required_slice, n_fft=N_FFT, hop_length=HOP_SIZE, window=WINDOW_TYPE, win_length=WIN_SIZE)
-				#stft_bee = np.abs(D_bee)**2
 
-				required_mfcc = librosa.feature.mfcc(y=required_slice, sr=sr, n_mfcc=N_MFCC, n_fft=N_FFT, hop_length=HOP_SIZE, n_mels=N_MELS, htk=True, fmin=FMIN, fmax=sr/2.0)
+				required_mfcc = librosa.feature.mfcc(y=None, sr=sr, n_mfcc=N_MFCC, n_fft=N_FFT, hop_length=HOP_SIZE, n_mels=N_MELS, htk=True, fmin=FMIN, fmax=sr/2.0)
 
 				for e in required_mfcc:
 					to_append += f' {np.mean(e)}'
