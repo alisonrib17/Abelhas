@@ -9,8 +9,8 @@ def extrai_espectograma():
 	plt.figure(figsize=(8,8))
 
 	especies = ['Auglochloropsis_bradiocephalis', 'Augchloropsis_sp1', 'Auglochloropsis_sp1', 'Auglochloropsis_sp2', 'Pseudoalglochloropsis_graminea',
- 	'Bombus_morio', 'Bombus_atractus', 'Centris_trigonoides', 'Melipona_quadrifasciata', 'Melipona_bicolor', 'Xylocopa_suspecta',
- 	'Xylocopa_nigrocincta', 'Exomalopsis_analis', 'Exomalopsis_minor']
+ 		'Bombus_morio', 'Bombus_atractus', 'Centris_trigonoides', 'Melipona_quadrifasciata', 'Melipona_bicolor', 'Xylocopa_suspecta',
+		'Xylocopa_nigrocincta', 'Exomalopsis_analis', 'Exomalopsis_minor', 'Centris_fuscata', 'Centris_tarsata', 'Eulaema_nigrita', 'Exomalopis_analis']
 
 	for g in especies:
 		pathlib.Path(f'/home/alison/Documentos/Projeto/img_data/{g}').mkdir(parents=True, exist_ok=True)
