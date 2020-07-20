@@ -1,5 +1,6 @@
 import os
 import csv
+import sys
 import pickle
 import librosa
 import pathlib
@@ -20,7 +21,7 @@ from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import cross_val_predict, KFold
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, Binarizer
-from sklearn.model_selection import RepeatedStratifiedKFold
+from sklearn.model_selection import StratifiedKFold
 from imblearn.pipeline import Pipeline
 from imblearn.over_sampling import SMOTE
 from imblearn.under_sampling import RandomUnderSampler
@@ -33,62 +34,100 @@ def salva_modelo(modelo, nome_arq):
 	filename = '/home/alison/Documentos/Projeto/modelos/' + nome_arq
 	pickle.dump(modelo, open(filename, 'wb'))
 
-def algoritmos(op, matriz, classes):
+def algoritmos(op, matriz, classes, zumbido):
 	if op == "svm":
-		tuned_parameters = [{'kernel': ['rbf'], 'gamma': [1e-2,1e-3,1e-4], 'C': [0.001, 0.1, 0.01, 1, 10]}, {'kernel': ['linear'], 'C': [0.001, 0.1, 0.01, 1, 10]}]
+		tuned_parameters = [{'kernel': ['rbf'], 'gamma': [1e-2,1e-3,1e-4], 'C': [0.001, 0.1, 0.01, 1, 10], 'decision_function_shape': ['ovo']},
+							{'kernel': ['poly'], 'gamma': [1e-2,1e-3,1e-4], 'C': [0.001, 0.1, 0.01, 1, 10], 'decision_function_shape': ['ovo']},
+							{'kernel': ['sigmoid'], 'gamma': [1e-2,1e-3,1e-4], 'C': [0.001, 0.1, 0.01, 1, 10], 'decision_function_shape': ['ovo']}, 
+							{'kernel': ['linear'], 'C': [0.001, 0.1, 0.01, 1, 10], 'decision_function_shape': ['ovo']}]
 
 		scores = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
 
 		for score in scores:
 			modelo = GridSearchCV(SVC(), tuned_parameters, scoring=score)
-			#clf = RFE(grid, step=1)
-			#modelo.fit(X_train, y_train)
 			
-			kfold = KFold(n_splits=8, shuffle=True)
+			kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
 
 			prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
 
-		#salva_modelo(clf, "modelo_svm.sav")
+		modelname = "modelo_svm_" + zumbido + ".sav"
+		salva_modelo(modelo, modelname)
+
 	elif op == "lr":
-		#penalty = ['l1', 'l2']
-		#C = [0.001, 0.1, 1, 10, 100,]
+		tuned_parameters = [{'penalty': ['l1', 'l2']},
+							{'C': [0.001, 0.1, 1, 10, 100]}]
 
-		#tuned_parameters = dict(C=C, penalty=penalty)
-		modelo = LogisticRegression()
+		scores = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
 
-		kfold = KFold(n_splits=8, shuffle=True)
+		for score in scores:
+			modelo = GridSearchCV(LogisticRegression(), tuned_parameters, scoring=score)
 
-		prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
+			kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
 
-		#salva_modelo(modelo, "modelo_lr.sav")
+			prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
+
+		modelname = "modelo_lr_" + zumbido + ".sav"
+		salva_modelo(modelo, modelname)
+
 	elif op == "dtree":
-		modelo = DecisionTreeClassifier()
+		tuned_parameters = {"criterion": ["gini", "entropy"],
+							"min_samples_split": [2, 10],
+							"max_depth": [2, 5, 10]
+							}
 
-		kfold = KFold(n_splits=8, shuffle=True)
+		scores = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
 
-		prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
+		for score in scores:
+			modelo = GridSearchCV(DecisionTreeClassifier(), tuned_parameters, scoring=score)
 
-		#salva_modelo(modelo, "modelo_dtree.sav")
+			kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
+
+			prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
+
+		modelname = "modelo_dtree_" + zumbido + ".sav"
+		salva_modelo(modelo, modelname)
+
 	elif op == "rf":
-		modelo = RandomForestClassifier()
+		tuned_parameters = {'n_estimators': [100, 200],
+							'max_features': ['auto', 'sqrt', 'log2']}
+		
+		scores = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
 
-		kfold = KFold(n_splits=8, shuffle=True)
+		for score in scores:
+			modelo = GridSearchCV(RandomForestClassifier(), tuned_parameters, scoring=score)
 
-		prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
+			kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
 
-		#salva_modelo(modelo, "modelo_rf.sav")
+			prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
+
+		modelname = "modelo_rf_" + zumbido + ".sav"
+		salva_modelo(modelo, modelname)
+
 	elif op == "ens":
-		svc = SVC(C=0.1, kernel='linear')
+		tuned_parameters = {'lr__C': [0.001, 0.1, 1, 10, 100],
+							'svc__C': [0.001, 0.1, 0.01, 1, 10]}
+
+		svc = SVC()
 		rf = RandomForestClassifier()
 		lr = LogisticRegression()
 
-		modelo = VotingClassifier(estimators=[('svc', svc), ('rf', rf), ('lr', lr)], voting='hard')
+		modelos = [('svc', svc), ('rf', rf), ('lr', lr)]
 
-		kfold = KFold(n_splits=8, shuffle=True)
+		votingclf = VotingClassifier(estimators=modelos, voting='hard')
 
-		prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
+		scores = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
 
-		#salva_modelo(modelo, "modelo_ensemble.sav")
+		for score in scores:
+			modelo = GridSearchCV(votingclf, tuned_parameters, scoring=score)
+
+			kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
+
+			prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
+
+
+		modelname = "modelo_ensemble_" + zumbido + ".sav"
+		salva_modelo(modelo, modelname)
+
 	elif op == "lstm":
 		pass
 	elif op == "bilstm":
@@ -100,10 +139,14 @@ def algoritmos(op, matriz, classes):
 
 	return prediction
 
-def read_dataset():
+def read_dataset(zumbido):
 	data = pd.read_csv('/home/alison/Documentos/Projeto/datasets/dataset_mfcc.csv', sep=',')
-	#data.head()
-	data = data[data['Annotation'] == 'voo']
+	
+	if zumbido == "voo":
+		data = data[data['Annotation'] == 'voo']
+	if zumbido == "flor":
+		data = data[data['Annotation'] != 'voo']
+	
 	data = data.drop(['filename', 'Annotation'],axis=1)
 
 	especies_list = data.iloc[:, -1]
@@ -114,18 +157,10 @@ def read_dataset():
 
 	return matriz, classes
 
-def main():
-	matriz, classes = read_dataset()
+def main(algoritmo, zumbido):
+	matriz, classes = read_dataset(zumbido)
 	
-	#algoritmo = "svm"
-	#algoritmo = "lr"
-	#algoritmo = "rf"
-	#algoritmo = "dtree"
-	algoritmo = "ens"
-	#algoritmo = "lstm"
-	#algoritmo = "bilstm"
-	#algoritmo = "cnn"
-	pred = algoritmos(algoritmo, matriz, classes)
+	pred = algoritmos(algoritmo, matriz, classes, zumbido)
 
 	print("Acurácia...: %.4f" %(metrics.accuracy_score(classes, pred) * 100))
 	print("Precision..: %.4f" %(metrics.precision_score(classes, pred, average='macro') * 100))
@@ -136,4 +171,16 @@ def main():
 	#print(pd.crosstab(classes, pred, rownames=['True'], colnames=['Predicted'], margins=True))
 
 if __name__ == '__main__':
-	main()
+
+	args = sys.argv[1:]
+
+	if len(args) >= 2:
+
+		algoritmo = args[0]
+		zumbido = args[1]
+		main(algoritmo, zumbido)
+
+	else:
+		sys.exit('''
+			Parâmetros incoerentes!
+		''')
