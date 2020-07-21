@@ -61,7 +61,7 @@ def extrai_features():
 
 				required_slice = y[start_index:end_index]
 
-				required_mfcc = librosa.feature.mfcc(y=None, sr=sr, n_mfcc=N_MFCC, n_fft=N_FFT, hop_length=HOP_SIZE, n_mels=N_MELS, htk=True, fmin=FMIN, fmax=sr/2.0)
+				required_mfcc = librosa.feature.mfcc(y=required_slice, sr=sr, n_mfcc=N_MFCC, n_fft=N_FFT, hop_length=HOP_SIZE, n_mels=N_MELS, htk=True, fmin=FMIN, fmax=sr/2.0)
 
 				for e in required_mfcc:
 					to_append += f' {np.mean(e)}'
