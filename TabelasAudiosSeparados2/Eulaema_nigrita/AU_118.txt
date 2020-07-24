@@ -1,0 +1,5 @@
+Selection	View	Channel	Begin Time (s)	End Time (s)	Low Freq (Hz)	High Freq (Hz)	Annotation
+1	Spectrogram 1	1	2.373414760	3.091569779	0.000	21869.262	voo
+2	Spectrogram 1	1	3.433131313	4.921989281	0.000	22050.000	vibra_flor_1
+3	Spectrogram 1	1	5.403678623	6.621038961	0.000	22050.000	vibra_flor_1
+4	Spectrogram 1	1	7.293197026	8.002594058	0.000	22050.000	voo

@@ -150,14 +150,18 @@ def read_dataset(zumbido):
 	data = data.drop(['filename', 'Annotation'],axis=1)
 
 	especies_list = data.iloc[:, -1]
-	encoder = LabelEncoder()
-	classes = encoder.fit_transform(especies_list)
+	#encoder = LabelEncoder()
+	#classes = encoder.fit_transform(especies_list)
 	standard = StandardScaler()
 	matriz = standard.fit_transform(np.array(data.iloc[:, :-1]))
 
-	return matriz, classes
+	return matriz, especies_list #classes
 
 def main(algoritmo, zumbido):
+	especies = ['Auglochloropsis_bradiocephalis', 'Augchloropsis_sp1', 'Auglochloropsis_sp1', 'Auglochloropsis_sp2', 'Pseudoalglochloropsis_graminea',
+ 		'Bombus_morio', 'Bombus_atractus', 'Centris_trigonoides', 'Melipona_quadrifasciata', 'Melipona_bicolor', 'Xylocopa_suspecta',
+		'Xylocopa_nigrocincta', 'Exomalopsis_analis', 'Exomalopsis_minor', 'Centris_fuscata', 'Centris_tarsata', 'Eulaema_nigrita', 'Exomalopis_analis']
+		
 	matriz, classes = read_dataset(zumbido)
 	
 	pred = algoritmos(algoritmo, matriz, classes, zumbido)
@@ -167,8 +171,9 @@ def main(algoritmo, zumbido):
 	print("Recall.....: %.4f" %(metrics.recall_score(classes, pred, average='macro') * 100))
 	print("F1-Score...: %.4f" %(metrics.f1_score(classes, pred, average='macro') * 100))
 	print()
-	#print(metrics.classification_report(classes, pred, especies,digits=4))
-	#print(pd.crosstab(classes, pred, rownames=['True'], colnames=['Predicted'], margins=True))
+	print(metrics.classification_report(classes, pred, especies,digits=4))
+	print()
+	print(pd.crosstab(classes, pred, rownames=['True'], colnames=['Predicted'], margins=True))
 
 if __name__ == '__main__':
 

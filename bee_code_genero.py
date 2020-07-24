@@ -172,6 +172,8 @@ def main(algoritmo, zumbido):
 	print(metrics.classification_report(classes, pred, genero,digits=4))
 	print()
 	print(pd.crosstab(classes, pred, rownames=['True'], colnames=['Predicted'], margins=True))
+	df = pd.crosstab(classes, pred, rownames=['True'], colnames=['Predicted'], margins=True)
+	df.to_csv('result.csv')
 
 if __name__ == '__main__':
 

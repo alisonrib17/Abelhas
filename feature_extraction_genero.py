@@ -13,7 +13,7 @@ N_MELS = 40          # Parâmetros de filtros Mel
 WIN_SIZE = 1024      # Número de amostras em cada janela STFT
 WINDOW_TYPE = 'hann' # The windowin function
 FEATURE = 'mel'      # Feature representation
-FMIN = 1400
+#FMIN = 1400
 N_MFCC = 41			 # Número de features
 
 
@@ -24,9 +24,10 @@ def extrai_features():
 	
 	header += ' BeginTime'
 	header += ' EndTime'
-	#header += ' Frequência'
-	#header += ' Peso'
-	#header += ' Tamanho'
+	header += ' LowFreq'
+	header += ' HighFreq'
+	header += ' Peso'
+	header += ' TamanhoTorax'
 	header += ' Annotation'
 	header += ' label'
 	header = header.split()
@@ -44,31 +45,43 @@ def extrai_features():
 			y, sr = librosa.load(songname, mono=True)
 
 			table_name = os.path.splitext(filename)[0] + ".txt"
-			table = f'/home/alison/Documentos/Projeto/TabelasAudiosSeparadosGênero/{g}/{table_name}'
+			table = f'/home/alison/Documentos/Projeto/TabelasAudiosSeparadosGênero2/{g}/{table_name}'
 			table = pd.read_table(table, sep='\t')
 			size = int(table.shape[0])
 
 			start_time = table['Begin Time (s)']
 			end_time  = table['End Time (s)']
+			low_freq = table['Low Freq (Hz)']
+			#high_freq = table['High Freq (Hz)']
 			annotation = table['Annotation']
+			peso_abelha = table['peso']
+			tamanho_torax = table['tamanho torax']
 
 			for i in range(size):
 				to_append = f'{filename}'
 				start = float(start_time[i])
 				end = float(end_time[i])
+				FMIN = float(low_freq[i])
+				FMAX = sr/2.0
+				peso = float(peso_abelha[i])
+				tamanho = float(tamanho_torax[i])
 
 				start_index = librosa.time_to_samples(start)
 				end_index = librosa.time_to_samples(end)
 
 				required_slice = y[start_index:end_index]
 
-				required_mfcc = librosa.feature.mfcc(y=required_slice, sr=sr, n_mfcc=N_MFCC, n_fft=N_FFT, hop_length=HOP_SIZE, n_mels=N_MELS, htk=True, fmin=FMIN, fmax=sr/2.0)
+				required_mfcc = librosa.feature.mfcc(y=required_slice, sr=sr, n_mfcc=N_MFCC, n_fft=N_FFT, hop_length=HOP_SIZE, n_mels=N_MELS, htk=True, fmin=FMIN, fmax=FMAX)
 
 				for e in required_mfcc:
 					to_append += f' {np.mean(e)}'
 				
+				to_append += f' {FMIN}'
+				to_append += f' {FMAX}'
 				to_append += f' {start}'
 				to_append += f' {end}'
+				to_append += f' {peso}'
+				to_append += f' {tamanho}'
 				to_append += f' {annotation[i]}'
 				to_append += f' {g}'
 
