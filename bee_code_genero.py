@@ -5,6 +5,7 @@ import pickle
 import librosa
 import pathlib
 import pandas as pd
+import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
@@ -171,9 +172,13 @@ def main(algoritmo, zumbido):
 	print()
 	print(metrics.classification_report(classes, pred, genero,digits=4))
 	print()
-	print(pd.crosstab(classes, pred, rownames=['True'], colnames=['Predicted'], margins=True))
-	df = pd.crosstab(classes, pred, rownames=['True'], colnames=['Predicted'], margins=True)
-	df.to_csv('result.csv')
+	#print(pd.crosstab(classes, pred, rownames=['True'], colnames=['Predicted'], margins=True))
+	
+	fig = plt.figure(num=None, figsize=(10, 10), dpi=50, facecolor='w', edgecolor='k')
+	tab_acertos = sns.heatmap(pd.crosstab(classes, pred, rownames=['True'], colnames=['Predicted'], margins=True), 
+		cmap="YlGnBu", annot=True, annot_kws={'size':12}, cbar=False, square=True) 
+	#tab_acertos.get_figure().savefig('heatmap.jpeg')
+	plt.show()
 
 if __name__ == '__main__':
 

@@ -26,8 +26,8 @@ def extrai_features():
 	header += ' EndTime'
 	header += ' LowFreq'
 	header += ' HighFreq'
-	#header += ' Peso'
-	#header += ' TamanhoTorax'
+	header += ' Peso'
+	header += ' TamanhoTorax'
 	header += ' Annotation'
 	header += ' label'
 	header = header.split()

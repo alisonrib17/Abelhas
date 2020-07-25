@@ -31,8 +31,8 @@ def por_genero():
 
 def por_especie():
 	for e in especies:
-		for filename in os.listdir(f'/home/alison/Documentos/Projeto/especies/{e}'):			
-			
+		for filename in os.listdir(f'/home/alison/Documentos/Projeto/especies/{e}'):		
+
 			songname = f'/home/alison/Documentos/Projeto/especies/{e}/{filename}'
 
 			table_name = os.path.splitext(filename)[0] + ".txt"
@@ -42,14 +42,15 @@ def por_especie():
 			tabela_geral = f'/home/alison/Documentos/Projeto/Tabela_geral_Actualizada2.xlsx'
 			tabela_geral = pd.read_excel(tabela_geral, sep='\t')
 
-			tabela_geral = tabela_geral[tabela_geral['Genero_Abelha'] == e]
+			tabela_geral = tabela_geral[tabela_geral['Especie_Abeja'] == e]
 			tabela_geral = tabela_geral[tabela_geral['Audio'] == filename]
 
 			table['peso'] = list(tabela_geral['Peso'])
 			table['tamanho torax'] = list(tabela_geral['Tamanho torax'])
+			
 			end = f'/home/alison/Documentos/Projeto/TabelasAudiosSeparados2/{e}/{table_name}'
 			table.to_csv(end, sep='\t')
 
 if __name__ == '__main__':
-	por_genero()
+	#por_genero()
 	por_especie()

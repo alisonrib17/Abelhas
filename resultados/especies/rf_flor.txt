@@ -1,0 +1,31 @@
+Acurácia...: 77.1689
+Precision..: 64.4549
+Recall.....: 48.2932
+F1-Score...: 51.4717
+
+                                precision    recall  f1-score   support
+
+Auglochloropsis_bradiocephalis     0.0000    0.0000    0.0000         3
+             Augchloropsis_sp1     1.0000    0.6667    0.8000         6
+           Auglochloropsis_sp1     1.0000    0.6000    0.7500         5
+           Auglochloropsis_sp2     1.0000    1.0000    1.0000        12
+Pseudoalglochloropsis_graminea     0.9048    0.8636    0.8837        22
+                  Bombus_morio     0.7500    0.7895    0.7692        19
+               Bombus_atractus     0.4231    0.7333    0.5366        15
+           Centris_trigonoides     1.0000    0.6667    0.8000         3
+       Melipona_quadrifasciata     1.0000    0.3750    0.5455         8
+              Melipona_bicolor     0.7838    0.9667    0.8657        30
+             Xylocopa_suspecta     0.0000    0.0000    0.0000         2
+          Xylocopa_nigrocincta     1.0000    0.2857    0.4444         7
+            Exomalopsis_analis     0.7403    1.0000    0.8507        57
+             Exomalopsis_minor     1.0000    0.5789    0.7333        19
+               Centris_fuscata     0.0000    0.0000    0.0000         1
+               Centris_tarsata     0.0000    0.0000    0.0000         2
+               Eulaema_nigrita     0.0000    0.0000    0.0000         2
+             Exomalopis_analis     1.0000    0.1667    0.2857         6
+
+                      accuracy                         0.7717       219
+                     macro avg     0.6445    0.4829    0.5147       219
+                  weighted avg     0.7863    0.7717    0.7427       219
+
+
