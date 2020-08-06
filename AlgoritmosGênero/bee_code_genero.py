@@ -32,7 +32,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 def salva_modelo(modelo, nome_arq):
-	filename = '/home/alison/Documentos/Projeto/modelos_gen/' + nome_arq
+	filename = '/home/alison/Documentos/Projeto/modelosNovosGen/' + nome_arq
 	pickle.dump(modelo, open(filename, 'wb'))
 
 def algoritmos(op, matriz, classes, zumbido):
@@ -85,8 +85,8 @@ def algoritmos(op, matriz, classes, zumbido):
 
 			prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
 
-		#modelname = "modelo_dtree_" + zumbido + ".sav"
-		#salva_modelo(modelo, modelname)
+		modelname = "modelo_dtree_" + zumbido + ".sav"
+		salva_modelo(modelo, modelname)
 
 	elif op == "rf":
 		tuned_parameters = {'n_estimators': [100, 200],
@@ -141,7 +141,7 @@ def algoritmos(op, matriz, classes, zumbido):
 	return prediction
 
 def read_dataset(zumbido):
-	data = pd.read_csv('/home/alison/Documentos/Projeto/datasets/dataset_mfcc_genero2.csv', sep=',')
+	data = pd.read_csv('/home/alison/Documentos/Projeto/datasets/dataset_mfcc_genero3.csv', sep=',')
 	
 	if zumbido == "voo":
 		data = data[data['Annotation'] == 'voo']

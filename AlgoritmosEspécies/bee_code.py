@@ -32,7 +32,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 def salva_modelo(modelo, nome_arq):
-	filename = '/home/alison/Documentos/Projeto/modelos/' + nome_arq
+	filename = '/home/alison/Documentos/Projeto/modelosNovos/' + nome_arq
 	pickle.dump(modelo, open(filename, 'wb'))
 
 def algoritmos(op, matriz, classes, zumbido):
@@ -51,8 +51,8 @@ def algoritmos(op, matriz, classes, zumbido):
 
 			prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
 
-		#modelname = "modelo_svm_" + zumbido + ".sav"
-		#salva_modelo(modelo, modelname)
+		modelname = "modelo_svm_" + zumbido + ".sav"
+		salva_modelo(modelo, modelname)
 
 	elif op == "lr":
 		tuned_parameters = [{'penalty': ['l1', 'l2']},
@@ -141,7 +141,7 @@ def algoritmos(op, matriz, classes, zumbido):
 	return prediction
 
 def read_dataset(zumbido):
-	data = pd.read_csv('/home/alison/Documentos/Projeto/datasets/dataset_mfcc2.csv', sep=',')
+	data = pd.read_csv('/home/alison/Documentos/Projeto/datasets/dataset_mfcc3.csv', sep=',')
 	
 	if zumbido == "voo":
 		data = data[data['Annotation'] == 'voo']
@@ -159,9 +159,9 @@ def read_dataset(zumbido):
 	return matriz, especies_list #classes
 
 def main(algoritmo, zumbido):
-	especies = ['Auglochloropsis_bradiocephalis', 'Augchloropsis_sp1', 'Auglochloropsis_sp1', 'Auglochloropsis_sp2', 'Pseudoalglochloropsis_graminea',
+	especies = ['Auglochloropsis_bradiocephalis', 'Auglochloropsis_sp1', 'Auglochloropsis_sp2', 'Pseudoalglochloropsis_graminea',
  		'Bombus_morio', 'Bombus_atractus', 'Centris_trigonoides', 'Melipona_quadrifasciata', 'Melipona_bicolor', 'Xylocopa_suspecta',
-		'Xylocopa_nigrocincta', 'Exomalopsis_analis', 'Exomalopsis_minor', 'Centris_fuscata', 'Centris_tarsata', 'Eulaema_nigrita', 'Exomalopis_analis']
+		'Xylocopa_nigrocincta', 'Exomalopsis_analis', 'Exomalopsis_minor', 'Centris_tarsata', 'Eulaema_nigrita']
 
 	matriz, classes = read_dataset(zumbido)
 	
