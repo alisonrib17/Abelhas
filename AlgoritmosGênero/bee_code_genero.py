@@ -141,7 +141,7 @@ def algoritmos(op, matriz, classes, zumbido):
 	return prediction
 
 def read_dataset(zumbido):
-	data = pd.read_csv('/home/alison/Documentos/Projeto/datasets/dataset_mfcc_genero3.csv', sep=',')
+	data = pd.read_csv('/home/alison/Documentos/Projeto/datasets/dataset_mfcc_genero2.csv', sep=',')
 	
 	if zumbido == "voo":
 		data = data[data['Annotation'] == 'voo']
