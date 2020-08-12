@@ -32,7 +32,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 def salva_modelo(modelo, nome_arq):
-	filename = '/home/alison/Documentos/Projeto/modelosNovosGen/' + nome_arq
+	filename = '/home/alison/Documentos/Projeto/modelos_gen/' + nome_arq
 	pickle.dump(modelo, open(filename, 'wb'))
 
 def algoritmos(op, matriz, classes, zumbido):
@@ -141,7 +141,7 @@ def algoritmos(op, matriz, classes, zumbido):
 	return prediction
 
 def read_dataset(zumbido):
-	data = pd.read_csv('/home/alison/Documentos/Projeto/datasets/dataset_mfcc_genero2.csv', sep=',')
+	data = pd.read_csv('/home/alison/Documentos/Projeto/datasets_generos/dataset_mfcc_com_tudo.csv', sep=',')
 	
 	if zumbido == "voo":
 		data = data[data['Annotation'] == 'voo']

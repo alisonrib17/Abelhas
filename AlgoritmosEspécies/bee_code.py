@@ -32,7 +32,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 def salva_modelo(modelo, nome_arq):
-	filename = '/home/alison/Documentos/Projeto/modelosNovos/' + nome_arq
+	filename = '/home/alison/Documentos/Projeto/modelos/' + nome_arq
 	pickle.dump(modelo, open(filename, 'wb'))
 
 def algoritmos(op, matriz, classes, zumbido):
@@ -129,19 +129,10 @@ def algoritmos(op, matriz, classes, zumbido):
 		modelname = "modelo_ensemble_" + zumbido + ".sav"
 		salva_modelo(modelo, modelname)
 
-	elif op == "lstm":
-		pass
-	elif op == "bilstm":
-		pass
-	elif op == "cnn":
-		pass        
-	else:
-		print("Opção errada!")
-
 	return prediction
 
 def read_dataset(zumbido):
-	data = pd.read_csv('/home/alison/Documentos/Projeto/datasets/dataset_mfcc3.csv', sep=',')
+	data = pd.read_csv('/home/alison/Documentos/Projeto/datasets_especies/dataset_mfcc.csv', sep=',')
 	
 	if zumbido == "voo":
 		data = data[data['Annotation'] == 'voo']
@@ -160,7 +151,7 @@ def read_dataset(zumbido):
 
 def main(algoritmo, zumbido):
 	especies = ['Auglochloropsis_bradiocephalis', 'Auglochloropsis_sp1', 'Auglochloropsis_sp2', 'Pseudoalglochloropsis_graminea',
- 		'Bombus_morio', 'Bombus_atractus', 'Centris_trigonoides', 'Melipona_quadrifasciata', 'Melipona_bicolor', 'Xylocopa_suspecta',
+ 		'Bombus_morio', 'Bombus_pauloensis', 'Centris_trigonoides', 'Melipona_quadrifasciata', 'Melipona_bicolor', 'Xylocopa_suspecta',
 		'Xylocopa_nigrocincta', 'Exomalopsis_analis', 'Exomalopsis_minor', 'Centris_tarsata', 'Eulaema_nigrita']
 
 	matriz, classes = read_dataset(zumbido)

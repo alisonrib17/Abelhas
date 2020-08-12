@@ -1,0 +1,21 @@
+Acurácia...: 73.3333
+Precision..: 69.5422
+Recall.....: 62.5721
+F1-Score...: 64.8250
+
+                      precision    recall  f1-score   support
+
+       Augchloropsis     0.8182    0.7500    0.7826        12
+              Bombus     0.7273    0.8000    0.7619        20
+             Centris     0.9333    0.8750    0.9032        16
+             Eulaema     1.0000    0.5000    0.6667         2
+          Exomalopis     0.5294    0.6000    0.5625        15
+            Melipona     0.6552    0.7308    0.6909        26
+Pseudoalglochloropsi     0.0000    0.0000    0.0000         2
+            Xylocopa     0.9000    0.7500    0.8182        12
+
+            accuracy                         0.7333       105
+           macro avg     0.6954    0.6257    0.6482       105
+        weighted avg     0.7340    0.7333    0.7298       105
+
+
