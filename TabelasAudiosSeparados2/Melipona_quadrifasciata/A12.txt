@@ -1,5 +1,0 @@
-	Selection	View	Channel	Begin Time (s)	End Time (s)	Low Freq (Hz)	High Freq (Hz)	Annotation	peso	tamanho torax
-0	1	Spectrogram 1	1	0.0	0.720667272	0.0	22050.0	voo	0.0709	2.7
-1	2	Spectrogram 1	1	1.330462656	1.798588406	0.0	22050.0	vibra_flor_1	0.0709	2.7
-2	3	Spectrogram 1	1	2.9381050330000003	3.313837542	0.0	22050.0	vibra_flor_1	0.0709	2.7
-3	4	Spectrogram 1	1	4.5026305639999995	6.66463238	0.0	21887.868	voo	0.0709	2.7
