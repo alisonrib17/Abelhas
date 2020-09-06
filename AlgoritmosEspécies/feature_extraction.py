@@ -22,24 +22,21 @@ def extrai_features():
 	for i in range(1, N_MFCC):
 		header += f' mfcc{i}'
 	
-	header += ' BeginTime'
-	header += ' EndTime'
-	header += ' LowFreq'
-	header += ' HighFreq'
 	header += ' Peso'
 	header += ' TamanhoTorax'
 	header += ' Annotation'
 	header += ' label'
 	header = header.split()
 
-	file = open('/home/alison/Documentos/Projeto/datasets/dataset_mfcc.csv', 'w', newline='')
+	file = open('/home/alison/Documentos/Projeto/datasets_especies/dataset_especies_mfcc_pesoTamanho.csv', 'w', newline='')
 	with file:
 		writer = csv.writer(file)
 		writer.writerow(header)
 
-	especies = ['Auglochloropsis_bradiocephalis', 'Augchloropsis_sp1', 'Auglochloropsis_sp1', 'Auglochloropsis_sp2', 'Pseudoalglochloropsis_graminea',
- 		'Bombus_morio', 'Bombus_pauloensis', 'Centris_trigonoides', 'Melipona_quadrifasciata', 'Melipona_bicolor', 'Xylocopa_suspecta',
-		'Xylocopa_nigrocincta', 'Exomalopsis_analis', 'Exomalopsis_minor', 'Centris_fuscata', 'Centris_tarsata', 'Eulaema_nigrita', 'Exomalopis_analis']
+	especies = ['Augochloropsis_sp1', 'Augochloropsis_sp2', 'Augochloropsis_brachycephala', 'Bombus_morio', 
+		'Bombus_pauloensis', 'Centris_tarsata', 'Centris_trigonoides', 'Eulaema_nigrita', 'Exomalopsis_analis', 
+		'Exomalopsis_minor', 'Melipona_bicolor', 'Melipona_quadrifasciata', 'Pseudoalglochloropsis_graminea', 
+		'Xylocopa_nigrocincta', 'Xylocopa_suspecta']
 
 	for g in especies:
 		for filename in os.listdir(f'/home/alison/Documentos/Projeto/especies/{g}'):			
@@ -47,14 +44,15 @@ def extrai_features():
 			y, sr = librosa.load(songname, mono=True)
 
 			table_name = os.path.splitext(filename)[0] + ".txt"
-			table = f'/home/alison/Documentos/Projeto/TabelasAudiosSeparados2/{g}/{table_name}'
+			table = f'/home/alison/Documentos/Projeto/TabelasAudiosSeparadosEspécies/{g}/{table_name}'
 			table = pd.read_table(table, sep='\t')
+			size = int(table.shape[0])
+			
 			size = int(table.shape[0])
 
 			start_time = table['Begin Time (s)']
 			end_time  = table['End Time (s)']
 			low_freq = table['Low Freq (Hz)']
-			#high_freq = table['High Freq (Hz)']
 			annotation = table['Annotation']
 			peso_abelha = table['peso']
 			tamanho_torax = table['tamanho torax']
@@ -78,16 +76,12 @@ def extrai_features():
 				for e in required_mfcc:
 					to_append += f' {np.mean(e)}'
 				
-				to_append += f' {FMIN}'
-				to_append += f' {FMAX}'
-				to_append += f' {start}'
-				to_append += f' {end}'
 				to_append += f' {peso}'
 				to_append += f' {tamanho}'
 				to_append += f' {annotation[i]}'
 				to_append += f' {g}'
 
-				file = open('/home/alison/Documentos/Projeto/datasets/dataset_mfcc.csv', 'a', newline='')
+				file = open('/home/alison/Documentos/Projeto/datasets_especies/dataset_especies_mfcc_pesoTamanho.csv', 'a', newline='')
 				with file:
 					writer = csv.writer(file)
 					writer.writerow(to_append.split())

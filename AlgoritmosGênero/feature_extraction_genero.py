@@ -22,17 +22,14 @@ def extrai_features():
 	for i in range(1, N_MFCC):
 		header += f' mfcc{i}'
 	
-	header += ' BeginTime'
-	header += ' EndTime'
-	header += ' LowFreq'
-	header += ' HighFreq'
 	header += ' Peso'
 	header += ' TamanhoTorax'
 	header += ' Annotation'
 	header += ' label'
 	header = header.split()
 
-	file = open('/home/alison/Documentos/Projeto/datasets/dataset_mfcc_genero.csv', 'w', newline='')
+
+	file = open('/home/alison/Documentos/Projeto/datasets_generos/dataset_genero_mfcc_pesoTamanho.csv', 'w', newline='')
 	with file:
 		writer = csv.writer(file)
 		writer.writerow(header)
@@ -45,14 +42,13 @@ def extrai_features():
 			y, sr = librosa.load(songname, mono=True)
 
 			table_name = os.path.splitext(filename)[0] + ".txt"
-			table = f'/home/alison/Documentos/Projeto/TabelasAudiosSeparadosGênero2/{g}/{table_name}'
+			table = f'/home/alison/Documentos/Projeto/TabelasAudiosSeparadosGênero/{g}/{table_name}'
 			table = pd.read_table(table, sep='\t')
 			size = int(table.shape[0])
 
 			start_time = table['Begin Time (s)']
 			end_time  = table['End Time (s)']
 			low_freq = table['Low Freq (Hz)']
-			#high_freq = table['High Freq (Hz)']
 			annotation = table['Annotation']
 			peso_abelha = table['peso']
 			tamanho_torax = table['tamanho torax']
@@ -76,16 +72,12 @@ def extrai_features():
 				for e in required_mfcc:
 					to_append += f' {np.mean(e)}'
 				
-				to_append += f' {FMIN}'
-				to_append += f' {FMAX}'
-				to_append += f' {start}'
-				to_append += f' {end}'
 				to_append += f' {peso}'
 				to_append += f' {tamanho}'
 				to_append += f' {annotation[i]}'
 				to_append += f' {g}'
 
-				file = open('/home/alison/Documentos/Projeto/datasets/dataset_mfcc_genero.csv', 'a', newline='')
+				file = open('/home/alison/Documentos/Projeto/datasets_generos/dataset_genero_mfcc_pesoTamanho.csv', 'a', newline='')
 				with file:
 					writer = csv.writer(file)
 					writer.writerow(to_append.split())

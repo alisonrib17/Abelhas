@@ -35,40 +35,77 @@ def salva_modelo(modelo, nome_arq):
 	filename = '/home/alison/Documentos/Projeto/modelos_gen/' + nome_arq
 	pickle.dump(modelo, open(filename, 'wb'))
 
+def treino_teste(matriz, classes, modelo, tuned_parameters):
+	X_train, X_test, y_train, y_test = train_test_split(matriz, classes, test_size=0.5, random_state=0)
+	kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
+
+	scores = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
+
+	for score in scores:
+		print("# Tuning hyper-parameters for %s" % score)
+		print()
+		clf = GridSearchCV(modelo, tuned_parameters, scoring=score, cv=kfold)
+		
+		clf.fit(X_train, y_train)
+
+		print("Best parameters set found on development set:")
+		print()
+		print(clf.best_params_)
+		print()
+		print("Grid scores on development set:")
+		print()
+		means = clf.cv_results_['mean_test_score']
+		stds = clf.cv_results_['std_test_score']
+		for mean, std, params in zip(means, stds, clf.cv_results_['params']):
+			print("%0.3f (+/-%0.03f) for %r"
+				% (mean, std * 2, params))
+		print()
+
+		print("Detailed classification report:")
+		print()
+		print("The model is trained on the full development set.")
+		print("The scores are computed on the full evaluation set.")
+		print()
+		y_true, y_pred = y_test, clf.predict(X_test)
+		print("Acurácia...: %.4f" %(metrics.accuracy_score(y_true, y_pred) * 100))
+		print("Precision..: %.4f" %(metrics.precision_score(y_true, y_pred, average='macro') * 100))
+		print("Recall.....: %.4f" %(metrics.recall_score(y_true, y_pred, average='macro') * 100))
+		print("F1-Score...: %.4f" %(metrics.f1_score(y_true, y_pred, average='macro') * 100))
+		print()
+		print(metrics.classification_report(y_true, y_pred))
+		print()
+	#fig = plt.figure(num=None, figsize=(5, 5), dpi=80, facecolor='w', edgecolor='k')
+	#tab_acertos = sns.heatmap(pd.crosstab(classes, pred, rownames=['True'], colnames=['Predicted'], margins=True), 
+	#	cmap="YlGnBu", annot=True, annot_kws={'size':14}, cbar=False, square=True)
+	#tab_acertos.set_xticklabels(tab_acertos.get_xticklabels(), rotation=45) 
+	#tab_acertos.get_figure().savefig('heatmap.jpeg')
+	#plt.show()
+
+	return clf	
+
 def algoritmos(op, matriz, classes, zumbido):
-	if op == "svm":
+	
+	if op == "svm":	
 		tuned_parameters = [{'kernel': ['rbf'], 'gamma': [1e-2,1e-3,1e-4], 'C': [0.001, 0.1, 0.01, 1, 10], 'decision_function_shape': ['ovo']},
 							{'kernel': ['poly'], 'gamma': [1e-2,1e-3,1e-4], 'C': [0.001, 0.1, 0.01, 1, 10], 'decision_function_shape': ['ovo']},
 							{'kernel': ['sigmoid'], 'gamma': [1e-2,1e-3,1e-4], 'C': [0.001, 0.1, 0.01, 1, 10], 'decision_function_shape': ['ovo']}, 
 							{'kernel': ['linear'], 'C': [0.001, 0.1, 0.01, 1, 10], 'decision_function_shape': ['ovo']}]
 
-		scores = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
-
-		for score in scores:
-			modelo = GridSearchCV(SVC(), tuned_parameters, scoring=score)
-			
-			kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
-
-			prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
-
-		modelname = "modelo_svm_mfcc_pt_" + zumbido + ".sav"
-		salva_modelo(modelo, modelname)
+		modelo = SVC()
+		clf = treino_teste(matriz, classes, modelo, tuned_parameters)
+		
+		modelname = "modelo_svm_mfcc_" + zumbido + ".sav"
+		salva_modelo(clf, modelname)
 
 	elif op == "lr":
 		tuned_parameters = [{'penalty': ['l1', 'l2']},
 							{'C': [0.001, 0.1, 1, 10, 100]}]
 
-		scores = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
+		modelo = LogisticRegression()
+		clf = treino_teste(matriz, classes, modelo, tuned_parameters)
 
-		for score in scores:
-			modelo = GridSearchCV(LogisticRegression(), tuned_parameters, scoring=score)
-
-			kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
-
-			prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
-
-		modelname = "modelo_lr_mfcc_pt_" + zumbido + ".sav"
-		salva_modelo(modelo, modelname)
+		modelname = "modelo_lr_mfcc_" + zumbido + ".sav"
+		salva_modelo(clf, modelname)
 
 	elif op == "dtree":
 		tuned_parameters = {"criterion": ["gini", "entropy"],
@@ -76,32 +113,20 @@ def algoritmos(op, matriz, classes, zumbido):
 							"max_depth": [2, 5, 10]
 							}
 
-		scores = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
+		modelo = DecisionTreeClassifier()
+		clf = treino_teste(matriz, classes, modelo, tuned_parameters)
 
-		for score in scores:
-			modelo = GridSearchCV(DecisionTreeClassifier(), tuned_parameters, scoring=score)
-
-			kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
-
-			prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
-
-		modelname = "modelo_dtree_mfcc_pt_" + zumbido + ".sav"
-		salva_modelo(modelo, modelname)
+		modelname = "modelo_dtree_mfcc_" + zumbido + ".sav"
+		salva_modelo(clf, modelname)
 
 	elif op == "rf":
 		tuned_parameters = {'n_estimators': [100, 200],
 							'max_features': ['auto', 'sqrt', 'log2']}
 		
-		scores = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
+		modelo = RandomForestClassifier()
+		clf = treino_teste(matriz, classes, modelo, tuned_parameters)
 
-		for score in scores:
-			modelo = GridSearchCV(RandomForestClassifier(), tuned_parameters, scoring=score)
-
-			kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
-
-			prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
-
-		modelname = "modelo_rf_mfcc_pt_" + zumbido + ".sav"
+		modelname = "modelo_rf_mfcc_" + zumbido + ".sav"
 		salva_modelo(modelo, modelname)
 
 	elif op == "ens":
@@ -115,24 +140,13 @@ def algoritmos(op, matriz, classes, zumbido):
 		modelos = [('svc', svc), ('rf', rf), ('lr', lr)]
 
 		votingclf = VotingClassifier(estimators=modelos, voting='hard')
+		clf = treino_teste(matriz, classes, votingclf, tuned_parameters)
 
-		scores = ['accuracy', 'precision_macro', 'recall_macro', 'f1_macro']
-
-		for score in scores:
-			modelo = GridSearchCV(votingclf, tuned_parameters, scoring=score)
-
-			kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
-
-			prediction = cross_val_predict(modelo, matriz, classes, cv=kfold)
-
-
-		modelname = "modelo_ensemble_mfcc_pt_" + zumbido + ".sav"
-		salva_modelo(modelo, modelname)
-
-	return prediction
+		modelname = "modelo_ensemble_mfcc_" + zumbido + ".sav"
+		salva_modelo(clf, modelname)
 
 def read_dataset(zumbido):
-	data = pd.read_csv('/home/alison/Documentos/Projeto/datasets_generos/dataset_mfcc_peso_tamanho.csv', sep=',')
+	data = pd.read_csv('/home/alison/Documentos/Projeto/datasets_generos/dataset_genero_mfcc_pesoTamanho.csv', sep=',')
 	
 	if zumbido == "voo":
 		data = data[data['Annotation'] == 'voo']
@@ -154,22 +168,7 @@ def main(algoritmo, zumbido):
 
 	matriz, classes = read_dataset(zumbido)
 	
-	pred = algoritmos(algoritmo, matriz, classes, zumbido)
-
-	print("Acurácia...: %.4f" %(metrics.accuracy_score(classes, pred) * 100))
-	print("Precision..: %.4f" %(metrics.precision_score(classes, pred, average='macro') * 100))
-	print("Recall.....: %.4f" %(metrics.recall_score(classes, pred, average='macro') * 100))
-	print("F1-Score...: %.4f" %(metrics.f1_score(classes, pred, average='macro') * 100))
-	print()
-	print(metrics.classification_report(classes, pred, genero,digits=4))
-	print()
-	#print(pd.crosstab(classes, pred, rownames=['True'], colnames=['Predicted'], margins=True))
-	
-	fig = plt.figure(num=None, figsize=(10, 10), dpi=50, facecolor='w', edgecolor='k')
-	tab_acertos = sns.heatmap(pd.crosstab(classes, pred, rownames=['True'], colnames=['Predicted'], margins=True), 
-		cmap="YlGnBu", annot=True, annot_kws={'size':12}, cbar=False, square=True) 
-	#tab_acertos.get_figure().savefig('heatmap.jpeg')
-	plt.show()
+	algoritmos(algoritmo, matriz, classes, zumbido)
 
 if __name__ == '__main__':
 
