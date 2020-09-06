@@ -17,11 +17,9 @@ voo = {
 	'f1'  : [52.96, 59.68, 45.45, 33.77, 45.79]
 }
 
-output_file("generos_voo.html")
-
 source = ColumnDataSource(data=voo)
 
-p = figure(x_range=x, y_range=(0, 100), plot_height=350, title="Results flight-based classification outside the flower",
+p = figure(x_range=x, y_range=(0, 100), plot_height=350, title=None,
 	toolbar_location=None, tools="")
 
 p.vbar(x=dodge('algo', -0.25, range=p.x_range), top="acc", width=0.15, source=source,
@@ -50,11 +48,13 @@ labels_f1 = LabelSet(x=dodge('algo', 0.26, range=p.x_range), y="f1", text="f1", 
 
 p.x_range.range_padding = 0.1
 p.xgrid.grid_line_color = None
+p.yaxis.axis_label = "Score %"
 p.legend.location = "top_left"
 p.legend.orientation = "horizontal"
 p.add_layout(labels_acc)
 p.add_layout(labels_p)
 p.add_layout(labels_r)
 p.add_layout(labels_f1)
+output_file("generos_voo.html")
 show(p)
 

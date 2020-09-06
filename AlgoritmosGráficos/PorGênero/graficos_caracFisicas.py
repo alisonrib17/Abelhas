@@ -85,6 +85,7 @@ def grafico(source, top, title):
 
 	p.x_range.range_padding = 0.1
 	p.xgrid.grid_line_color = None
+	p.yaxis.axis_label = "Score %"
 	p.legend.location = "top_left"
 	p.legend.orientation = "horizontal"
 	p.legend.label_text_font_size = "8pt"
@@ -94,9 +95,9 @@ def grafico(source, top, title):
 
 	return p
 
-p1 = grafico(source1, ['acc1', 'acc2', 'acc3'], "Accuracy")
-p2 = grafico(source2, ['p1', 'p2', 'p3'], "Precision")
-p3 = grafico(source3, ['r1', 'r2', 'r3'], "Recall")
-p4 = grafico(source4, ['f11', 'f12', 'f13'], "F1-score")
+p1 = grafico(source1, ['acc1', 'acc2', 'acc3'], None)
+p2 = grafico(source2, ['p1', 'p2', 'p3'], None)
+p3 = grafico(source3, ['r1', 'r2', 'r3'], None)
+p4 = grafico(source4, ['f11', 'f12', 'f13'], None)
 
 show(gridplot([p1,p2,p3,p4], ncols=2, plot_width=550, plot_height=600, toolbar_location=None))
