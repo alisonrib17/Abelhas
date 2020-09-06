@@ -1,0 +1,192 @@
+# Tuning hyper-parameters for accuracy
+
+Best parameters set found on development set:
+
+{'max_features': 'auto', 'n_estimators': 100}
+
+Grid scores on development set:
+
+0.637 (+/-0.102) for {'max_features': 'auto', 'n_estimators': 100}
+0.619 (+/-0.133) for {'max_features': 'auto', 'n_estimators': 200}
+0.619 (+/-0.108) for {'max_features': 'sqrt', 'n_estimators': 100}
+0.594 (+/-0.168) for {'max_features': 'sqrt', 'n_estimators': 200}
+0.594 (+/-0.137) for {'max_features': 'log2', 'n_estimators': 100}
+0.613 (+/-0.188) for {'max_features': 'log2', 'n_estimators': 200}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 49.0683
+Precision..: 45.3476
+Recall.....: 35.4060
+F1-Score...: 33.0409
+
+                                precision    recall  f1-score   support
+
+  Augochloropsis_brachycephala       0.00      0.00      0.00         3
+            Augochloropsis_sp1       0.50      0.18      0.27        11
+            Augochloropsis_sp2       1.00      0.29      0.44         7
+                  Bombus_morio       0.50      0.54      0.52        13
+             Bombus_pauloensis       0.28      0.38      0.32        13
+               Centris_tarsata       0.40      0.67      0.50         3
+           Centris_trigonoides       0.80      0.57      0.67         7
+               Eulaema_nigrita       0.00      0.00      0.00         1
+            Exomalopsis_analis       0.60      0.78      0.68        41
+             Exomalopsis_minor       1.00      0.27      0.43        11
+              Melipona_bicolor       0.47      0.70      0.56        23
+       Melipona_quadrifasciata       1.00      0.10      0.18        10
+Pseudoalglochloropsis_graminea       0.25      0.83      0.38         6
+          Xylocopa_nigrocincta       0.00      0.00      0.00        10
+             Xylocopa_suspecta       0.00      0.00      0.00         2
+
+                      accuracy                           0.49       161
+                     macro avg       0.45      0.35      0.33       161
+                  weighted avg       0.54      0.49      0.45       161
+
+
+# Tuning hyper-parameters for precision_macro
+
+Best parameters set found on development set:
+
+{'max_features': 'auto', 'n_estimators': 100}
+
+Grid scores on development set:
+
+0.442 (+/-0.279) for {'max_features': 'auto', 'n_estimators': 100}
+0.421 (+/-0.152) for {'max_features': 'auto', 'n_estimators': 200}
+0.400 (+/-0.212) for {'max_features': 'sqrt', 'n_estimators': 100}
+0.391 (+/-0.178) for {'max_features': 'sqrt', 'n_estimators': 200}
+0.383 (+/-0.168) for {'max_features': 'log2', 'n_estimators': 100}
+0.366 (+/-0.199) for {'max_features': 'log2', 'n_estimators': 200}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 47.8261
+Precision..: 45.2103
+Recall.....: 37.0964
+F1-Score...: 36.4285
+
+                                precision    recall  f1-score   support
+
+  Augochloropsis_brachycephala       0.00      0.00      0.00         3
+            Augochloropsis_sp1       0.50      0.27      0.35        11
+            Augochloropsis_sp2       1.00      0.57      0.73         7
+                  Bombus_morio       0.43      0.46      0.44        13
+             Bombus_pauloensis       0.24      0.31      0.27        13
+               Centris_tarsata       0.50      0.67      0.57         3
+           Centris_trigonoides       0.80      0.57      0.67         7
+               Eulaema_nigrita       0.00      0.00      0.00         1
+            Exomalopsis_analis       0.62      0.71      0.66        41
+             Exomalopsis_minor       1.00      0.36      0.53        11
+              Melipona_bicolor       0.44      0.61      0.51        23
+       Melipona_quadrifasciata       1.00      0.20      0.33        10
+Pseudoalglochloropsis_graminea       0.26      0.83      0.40         6
+          Xylocopa_nigrocincta       0.00      0.00      0.00        10
+             Xylocopa_suspecta       0.00      0.00      0.00         2
+
+                      accuracy                           0.48       161
+                     macro avg       0.45      0.37      0.36       161
+                  weighted avg       0.54      0.48      0.47       161
+
+
+# Tuning hyper-parameters for recall_macro
+
+Best parameters set found on development set:
+
+{'max_features': 'log2', 'n_estimators': 100}
+
+Grid scores on development set:
+
+0.424 (+/-0.142) for {'max_features': 'auto', 'n_estimators': 100}
+0.461 (+/-0.165) for {'max_features': 'auto', 'n_estimators': 200}
+0.422 (+/-0.114) for {'max_features': 'sqrt', 'n_estimators': 100}
+0.407 (+/-0.112) for {'max_features': 'sqrt', 'n_estimators': 200}
+0.467 (+/-0.153) for {'max_features': 'log2', 'n_estimators': 100}
+0.412 (+/-0.114) for {'max_features': 'log2', 'n_estimators': 200}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 50.3106
+Precision..: 44.5653
+Recall.....: 38.1336
+F1-Score...: 36.2133
+
+                                precision    recall  f1-score   support
+
+  Augochloropsis_brachycephala       0.00      0.00      0.00         3
+            Augochloropsis_sp1       0.67      0.55      0.60        11
+            Augochloropsis_sp2       0.75      0.43      0.55         7
+                  Bombus_morio       0.58      0.54      0.56        13
+             Bombus_pauloensis       0.31      0.31      0.31        13
+               Centris_tarsata       0.40      0.67      0.50         3
+           Centris_trigonoides       0.67      0.57      0.62         7
+               Eulaema_nigrita       0.00      0.00      0.00         1
+            Exomalopsis_analis       0.63      0.76      0.69        41
+             Exomalopsis_minor       1.00      0.36      0.53        11
+              Melipona_bicolor       0.40      0.61      0.48        23
+       Melipona_quadrifasciata       1.00      0.10      0.18        10
+Pseudoalglochloropsis_graminea       0.28      0.83      0.42         6
+          Xylocopa_nigrocincta       0.00      0.00      0.00        10
+             Xylocopa_suspecta       0.00      0.00      0.00         2
+
+                      accuracy                           0.50       161
+                     macro avg       0.45      0.38      0.36       161
+                  weighted avg       0.55      0.50      0.48       161
+
+
+# Tuning hyper-parameters for f1_macro
+
+Best parameters set found on development set:
+
+{'max_features': 'sqrt', 'n_estimators': 100}
+
+Grid scores on development set:
+
+0.376 (+/-0.090) for {'max_features': 'auto', 'n_estimators': 100}
+0.398 (+/-0.205) for {'max_features': 'auto', 'n_estimators': 200}
+0.437 (+/-0.233) for {'max_features': 'sqrt', 'n_estimators': 100}
+0.404 (+/-0.127) for {'max_features': 'sqrt', 'n_estimators': 200}
+0.418 (+/-0.179) for {'max_features': 'log2', 'n_estimators': 100}
+0.420 (+/-0.198) for {'max_features': 'log2', 'n_estimators': 200}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 49.6894
+Precision..: 45.9508
+Recall.....: 34.3619
+F1-Score...: 34.2043
+
+                                precision    recall  f1-score   support
+
+  Augochloropsis_brachycephala       0.00      0.00      0.00         3
+            Augochloropsis_sp1       0.67      0.36      0.47        11
+            Augochloropsis_sp2       1.00      0.43      0.60         7
+                  Bombus_morio       0.64      0.54      0.58        13
+             Bombus_pauloensis       0.24      0.31      0.27        13
+               Centris_tarsata       0.25      0.33      0.29         3
+           Centris_trigonoides       0.75      0.43      0.55         7
+               Eulaema_nigrita       0.00      0.00      0.00         1
+            Exomalopsis_analis       0.65      0.80      0.72        41
+             Exomalopsis_minor       1.00      0.36      0.53        11
+              Melipona_bicolor       0.39      0.65      0.49        23
+       Melipona_quadrifasciata       1.00      0.10      0.18        10
+Pseudoalglochloropsis_graminea       0.31      0.83      0.45         6
+          Xylocopa_nigrocincta       0.00      0.00      0.00        10
+             Xylocopa_suspecta       0.00      0.00      0.00         2
+
+                      accuracy                           0.50       161
+                     macro avg       0.46      0.34      0.34       161
+                  weighted avg       0.56      0.50      0.47       161
+
+

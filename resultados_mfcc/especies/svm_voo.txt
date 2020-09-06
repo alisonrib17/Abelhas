@@ -1,0 +1,360 @@
+# Tuning hyper-parameters for accuracy
+
+Best parameters set found on development set:
+
+{'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+
+Grid scores on development set:
+
+0.176 (+/-0.078) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.176 (+/-0.078) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.176 (+/-0.078) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.176 (+/-0.078) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.176 (+/-0.078) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.176 (+/-0.078) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.176 (+/-0.078) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.176 (+/-0.078) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.176 (+/-0.078) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.411 (+/-0.184) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.176 (+/-0.078) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.176 (+/-0.078) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.467 (+/-0.287) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.411 (+/-0.184) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.176 (+/-0.078) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.176 (+/-0.078) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.176 (+/-0.078) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.176 (+/-0.078) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.176 (+/-0.078) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.176 (+/-0.078) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.176 (+/-0.078) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.176 (+/-0.078) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.176 (+/-0.078) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.176 (+/-0.078) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.176 (+/-0.078) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.176 (+/-0.078) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.176 (+/-0.078) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.236 (+/-0.164) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.176 (+/-0.078) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.176 (+/-0.078) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.176 (+/-0.078) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.176 (+/-0.078) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.176 (+/-0.078) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.176 (+/-0.078) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.176 (+/-0.078) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.176 (+/-0.078) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.176 (+/-0.078) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.176 (+/-0.078) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.176 (+/-0.078) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.315 (+/-0.154) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.176 (+/-0.078) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.176 (+/-0.078) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.427 (+/-0.223) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.295 (+/-0.220) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.176 (+/-0.078) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.176 (+/-0.078) for {'C': 0.001, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.447 (+/-0.260) for {'C': 0.1, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.295 (+/-0.220) for {'C': 0.01, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.447 (+/-0.227) for {'C': 1, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.447 (+/-0.227) for {'C': 10, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 55.7692
+Precision..: 56.9109
+Recall.....: 53.7821
+F1-Score...: 49.0065
+
+                                precision    recall  f1-score   support
+
+            Augochloropsis_sp1       1.00      0.38      0.55         8
+            Augochloropsis_sp2       0.00      0.00      0.00         0
+                  Bombus_morio       1.00      0.80      0.89         5
+             Bombus_pauloensis       0.56      1.00      0.71         5
+               Centris_tarsata       0.20      1.00      0.33         1
+           Centris_trigonoides       1.00      0.50      0.67         6
+            Exomalopsis_analis       0.14      0.50      0.22         4
+             Exomalopsis_minor       0.00      0.00      0.00         4
+              Melipona_bicolor       1.00      0.75      0.86         8
+       Melipona_quadrifasciata       0.50      0.67      0.57         3
+Pseudoalglochloropsis_graminea       0.00      0.00      0.00         2
+          Xylocopa_nigrocincta       1.00      0.40      0.57         5
+             Xylocopa_suspecta       1.00      1.00      1.00         1
+
+                      accuracy                           0.56        52
+                     macro avg       0.57      0.54      0.49        52
+                  weighted avg       0.73      0.56      0.58        52
+
+
+# Tuning hyper-parameters for precision_macro
+
+Best parameters set found on development set:
+
+{'C': 0.1, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+
+Grid scores on development set:
+
+0.021 (+/-0.010) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.021 (+/-0.010) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.021 (+/-0.010) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.021 (+/-0.010) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.021 (+/-0.010) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.021 (+/-0.010) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.021 (+/-0.010) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.021 (+/-0.010) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.021 (+/-0.010) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.257 (+/-0.140) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.021 (+/-0.010) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.021 (+/-0.010) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.321 (+/-0.306) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.244 (+/-0.116) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.021 (+/-0.010) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.021 (+/-0.010) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.021 (+/-0.010) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.021 (+/-0.010) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.021 (+/-0.010) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.021 (+/-0.010) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.021 (+/-0.010) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.021 (+/-0.010) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.021 (+/-0.010) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.021 (+/-0.010) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.021 (+/-0.010) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.021 (+/-0.010) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.021 (+/-0.010) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.132 (+/-0.141) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.021 (+/-0.010) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.021 (+/-0.010) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.021 (+/-0.010) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.021 (+/-0.010) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.021 (+/-0.010) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.021 (+/-0.010) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.021 (+/-0.010) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.021 (+/-0.010) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.021 (+/-0.010) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.021 (+/-0.010) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.021 (+/-0.010) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.128 (+/-0.117) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.021 (+/-0.010) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.021 (+/-0.010) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.295 (+/-0.220) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.136 (+/-0.126) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.021 (+/-0.010) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.021 (+/-0.010) for {'C': 0.001, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.329 (+/-0.270) for {'C': 0.1, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.136 (+/-0.126) for {'C': 0.01, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.305 (+/-0.271) for {'C': 1, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.305 (+/-0.271) for {'C': 10, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 46.1538
+Precision..: 43.5027
+Recall.....: 48.5897
+F1-Score...: 41.2759
+
+                                precision    recall  f1-score   support
+
+            Augochloropsis_sp1       0.00      0.00      0.00         8
+            Augochloropsis_sp2       0.00      0.00      0.00         0
+                  Bombus_morio       1.00      0.80      0.89         5
+             Bombus_pauloensis       0.56      1.00      0.71         5
+               Centris_tarsata       0.12      1.00      0.22         1
+           Centris_trigonoides       0.00      0.00      0.00         6
+            Exomalopsis_analis       0.12      0.50      0.19         4
+             Exomalopsis_minor       0.00      0.00      0.00         4
+              Melipona_bicolor       0.86      0.75      0.80         8
+       Melipona_quadrifasciata       1.00      0.67      0.80         3
+Pseudoalglochloropsis_graminea       0.00      0.00      0.00         2
+          Xylocopa_nigrocincta       1.00      0.60      0.75         5
+             Xylocopa_suspecta       1.00      1.00      1.00         1
+
+                      accuracy                           0.46        52
+                     macro avg       0.44      0.49      0.41        52
+                  weighted avg       0.47      0.46      0.43        52
+
+
+# Tuning hyper-parameters for recall_macro
+
+Best parameters set found on development set:
+
+{'C': 0.1, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+
+Grid scores on development set:
+
+0.117 (+/-0.014) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.117 (+/-0.014) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.117 (+/-0.014) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.117 (+/-0.014) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.117 (+/-0.014) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.117 (+/-0.014) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.117 (+/-0.014) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.117 (+/-0.014) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.117 (+/-0.014) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.375 (+/-0.159) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.117 (+/-0.014) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.117 (+/-0.014) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.397 (+/-0.280) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.365 (+/-0.148) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.117 (+/-0.014) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.117 (+/-0.014) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.117 (+/-0.014) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.117 (+/-0.014) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.117 (+/-0.014) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.117 (+/-0.014) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.117 (+/-0.014) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.117 (+/-0.014) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.117 (+/-0.014) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.117 (+/-0.014) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.117 (+/-0.014) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.117 (+/-0.014) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.117 (+/-0.014) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.207 (+/-0.141) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.117 (+/-0.014) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.117 (+/-0.014) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.117 (+/-0.014) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.117 (+/-0.014) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.117 (+/-0.014) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.117 (+/-0.014) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.117 (+/-0.014) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.117 (+/-0.014) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.117 (+/-0.014) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.117 (+/-0.014) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.117 (+/-0.014) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.257 (+/-0.165) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.117 (+/-0.014) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.117 (+/-0.014) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.390 (+/-0.250) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.235 (+/-0.226) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.117 (+/-0.014) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.117 (+/-0.014) for {'C': 0.001, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.415 (+/-0.293) for {'C': 0.1, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.235 (+/-0.226) for {'C': 0.01, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.377 (+/-0.230) for {'C': 1, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.377 (+/-0.230) for {'C': 10, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 46.1538
+Precision..: 43.5027
+Recall.....: 48.5897
+F1-Score...: 41.2759
+
+                                precision    recall  f1-score   support
+
+            Augochloropsis_sp1       0.00      0.00      0.00         8
+            Augochloropsis_sp2       0.00      0.00      0.00         0
+                  Bombus_morio       1.00      0.80      0.89         5
+             Bombus_pauloensis       0.56      1.00      0.71         5
+               Centris_tarsata       0.12      1.00      0.22         1
+           Centris_trigonoides       0.00      0.00      0.00         6
+            Exomalopsis_analis       0.12      0.50      0.19         4
+             Exomalopsis_minor       0.00      0.00      0.00         4
+              Melipona_bicolor       0.86      0.75      0.80         8
+       Melipona_quadrifasciata       1.00      0.67      0.80         3
+Pseudoalglochloropsis_graminea       0.00      0.00      0.00         2
+          Xylocopa_nigrocincta       1.00      0.60      0.75         5
+             Xylocopa_suspecta       1.00      1.00      1.00         1
+
+                      accuracy                           0.46        52
+                     macro avg       0.44      0.49      0.41        52
+                  weighted avg       0.47      0.46      0.43        52
+
+
+# Tuning hyper-parameters for f1_macro
+
+Best parameters set found on development set:
+
+{'C': 0.1, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+
+Grid scores on development set:
+
+0.035 (+/-0.015) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.035 (+/-0.015) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.035 (+/-0.015) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.035 (+/-0.015) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.035 (+/-0.015) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.035 (+/-0.015) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.035 (+/-0.015) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.035 (+/-0.015) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.035 (+/-0.015) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.285 (+/-0.133) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.035 (+/-0.015) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.035 (+/-0.015) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.340 (+/-0.291) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'rbf'}
+0.279 (+/-0.126) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'rbf'}
+0.035 (+/-0.015) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'rbf'}
+0.035 (+/-0.015) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.035 (+/-0.015) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.035 (+/-0.015) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.035 (+/-0.015) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.035 (+/-0.015) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.035 (+/-0.015) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.035 (+/-0.015) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.035 (+/-0.015) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.035 (+/-0.015) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.035 (+/-0.015) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.035 (+/-0.015) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.035 (+/-0.015) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.130 (+/-0.148) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'poly'}
+0.035 (+/-0.015) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'poly'}
+0.035 (+/-0.015) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'poly'}
+0.035 (+/-0.015) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.035 (+/-0.015) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.035 (+/-0.015) for {'C': 0.001, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.035 (+/-0.015) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.035 (+/-0.015) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.035 (+/-0.015) for {'C': 0.1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.035 (+/-0.015) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.035 (+/-0.015) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.035 (+/-0.015) for {'C': 0.01, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.159 (+/-0.132) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.035 (+/-0.015) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.035 (+/-0.015) for {'C': 1, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.319 (+/-0.239) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.01, 'kernel': 'sigmoid'}
+0.156 (+/-0.147) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.001, 'kernel': 'sigmoid'}
+0.035 (+/-0.015) for {'C': 10, 'decision_function_shape': 'ovo', 'gamma': 0.0001, 'kernel': 'sigmoid'}
+0.035 (+/-0.015) for {'C': 0.001, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.346 (+/-0.292) for {'C': 0.1, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.156 (+/-0.147) for {'C': 0.01, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.318 (+/-0.257) for {'C': 1, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+0.318 (+/-0.257) for {'C': 10, 'decision_function_shape': 'ovo', 'kernel': 'linear'}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 46.1538
+Precision..: 43.5027
+Recall.....: 48.5897
+F1-Score...: 41.2759
+
+                                precision    recall  f1-score   support
+
+            Augochloropsis_sp1       0.00      0.00      0.00         8
+            Augochloropsis_sp2       0.00      0.00      0.00         0
+                  Bombus_morio       1.00      0.80      0.89         5
+             Bombus_pauloensis       0.56      1.00      0.71         5
+               Centris_tarsata       0.12      1.00      0.22         1
+           Centris_trigonoides       0.00      0.00      0.00         6
+            Exomalopsis_analis       0.12      0.50      0.19         4
+             Exomalopsis_minor       0.00      0.00      0.00         4
+              Melipona_bicolor       0.86      0.75      0.80         8
+       Melipona_quadrifasciata       1.00      0.67      0.80         3
+Pseudoalglochloropsis_graminea       0.00      0.00      0.00         2
+          Xylocopa_nigrocincta       1.00      0.60      0.75         5
+             Xylocopa_suspecta       1.00      1.00      1.00         1
+
+                      accuracy                           0.46        52
+                     macro avg       0.44      0.49      0.41        52
+                  weighted avg       0.47      0.46      0.43        52
+
+

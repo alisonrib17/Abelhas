@@ -1,0 +1,168 @@
+# Tuning hyper-parameters for accuracy
+
+Best parameters set found on development set:
+
+{'penalty': 'l2'}
+
+Grid scores on development set:
+
+nan (+/-nan) for {'penalty': 'l1'}
+0.655 (+/-0.139) for {'penalty': 'l2'}
+0.269 (+/-0.073) for {'C': 0.001}
+0.580 (+/-0.228) for {'C': 0.1}
+0.655 (+/-0.139) for {'C': 1}
+0.636 (+/-0.201) for {'C': 10}
+0.618 (+/-0.181) for {'C': 100}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 62.2642
+Precision..: 70.2610
+Recall.....: 58.1994
+F1-Score...: 59.4067
+
+                      precision    recall  f1-score   support
+
+       Augchloropsis       1.00      0.25      0.40         8
+              Bombus       0.69      0.90      0.78        10
+             Centris       1.00      0.71      0.83         7
+             Eulaema       1.00      1.00      1.00         1
+          Exomalopis       0.36      0.62      0.45         8
+            Melipona       0.57      0.67      0.62        12
+Pseudoalglochloropsi       0.00      0.00      0.00         1
+            Xylocopa       1.00      0.50      0.67         6
+
+            accuracy                           0.62        53
+           macro avg       0.70      0.58      0.59        53
+        weighted avg       0.73      0.62      0.62        53
+
+
+# Tuning hyper-parameters for precision_macro
+
+Best parameters set found on development set:
+
+{'penalty': 'l2'}
+
+Grid scores on development set:
+
+nan (+/-nan) for {'penalty': 'l1'}
+0.536 (+/-0.143) for {'penalty': 'l2'}
+0.044 (+/-0.019) for {'C': 0.001}
+0.472 (+/-0.297) for {'C': 0.1}
+0.536 (+/-0.143) for {'C': 1}
+0.507 (+/-0.241) for {'C': 10}
+0.506 (+/-0.195) for {'C': 100}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 62.2642
+Precision..: 70.2610
+Recall.....: 58.1994
+F1-Score...: 59.4067
+
+                      precision    recall  f1-score   support
+
+       Augchloropsis       1.00      0.25      0.40         8
+              Bombus       0.69      0.90      0.78        10
+             Centris       1.00      0.71      0.83         7
+             Eulaema       1.00      1.00      1.00         1
+          Exomalopis       0.36      0.62      0.45         8
+            Melipona       0.57      0.67      0.62        12
+Pseudoalglochloropsi       0.00      0.00      0.00         1
+            Xylocopa       1.00      0.50      0.67         6
+
+            accuracy                           0.62        53
+           macro avg       0.70      0.58      0.59        53
+        weighted avg       0.73      0.62      0.62        53
+
+
+# Tuning hyper-parameters for recall_macro
+
+Best parameters set found on development set:
+
+{'penalty': 'l2'}
+
+Grid scores on development set:
+
+nan (+/-nan) for {'penalty': 'l1'}
+0.577 (+/-0.109) for {'penalty': 'l2'}
+0.164 (+/-0.042) for {'C': 0.001}
+0.507 (+/-0.220) for {'C': 0.1}
+0.577 (+/-0.109) for {'C': 1}
+0.563 (+/-0.114) for {'C': 10}
+0.538 (+/-0.189) for {'C': 100}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 62.2642
+Precision..: 70.2610
+Recall.....: 58.1994
+F1-Score...: 59.4067
+
+                      precision    recall  f1-score   support
+
+       Augchloropsis       1.00      0.25      0.40         8
+              Bombus       0.69      0.90      0.78        10
+             Centris       1.00      0.71      0.83         7
+             Eulaema       1.00      1.00      1.00         1
+          Exomalopis       0.36      0.62      0.45         8
+            Melipona       0.57      0.67      0.62        12
+Pseudoalglochloropsi       0.00      0.00      0.00         1
+            Xylocopa       1.00      0.50      0.67         6
+
+            accuracy                           0.62        53
+           macro avg       0.70      0.58      0.59        53
+        weighted avg       0.73      0.62      0.62        53
+
+
+# Tuning hyper-parameters for f1_macro
+
+Best parameters set found on development set:
+
+{'penalty': 'l2'}
+
+Grid scores on development set:
+
+nan (+/-nan) for {'penalty': 'l1'}
+0.529 (+/-0.087) for {'penalty': 'l2'}
+0.070 (+/-0.027) for {'C': 0.001}
+0.455 (+/-0.238) for {'C': 0.1}
+0.529 (+/-0.087) for {'C': 1}
+0.505 (+/-0.157) for {'C': 10}
+0.493 (+/-0.161) for {'C': 100}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 62.2642
+Precision..: 70.2610
+Recall.....: 58.1994
+F1-Score...: 59.4067
+
+                      precision    recall  f1-score   support
+
+       Augchloropsis       1.00      0.25      0.40         8
+              Bombus       0.69      0.90      0.78        10
+             Centris       1.00      0.71      0.83         7
+             Eulaema       1.00      1.00      1.00         1
+          Exomalopis       0.36      0.62      0.45         8
+            Melipona       0.57      0.67      0.62        12
+Pseudoalglochloropsi       0.00      0.00      0.00         1
+            Xylocopa       1.00      0.50      0.67         6
+
+            accuracy                           0.62        53
+           macro avg       0.70      0.58      0.59        53
+        weighted avg       0.73      0.62      0.62        53
+
+

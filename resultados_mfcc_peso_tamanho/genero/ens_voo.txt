@@ -1,0 +1,240 @@
+# Tuning hyper-parameters for accuracy
+
+Best parameters set found on development set:
+
+{'lr__C': 100, 'svc__C': 0.1}
+
+Grid scores on development set:
+
+0.269 (+/-0.073) for {'lr__C': 0.001, 'svc__C': 0.001}
+0.269 (+/-0.073) for {'lr__C': 0.001, 'svc__C': 0.1}
+0.269 (+/-0.073) for {'lr__C': 0.001, 'svc__C': 0.01}
+0.635 (+/-0.136) for {'lr__C': 0.001, 'svc__C': 1}
+0.676 (+/-0.168) for {'lr__C': 0.001, 'svc__C': 10}
+0.658 (+/-0.229) for {'lr__C': 0.1, 'svc__C': 0.001}
+0.676 (+/-0.168) for {'lr__C': 0.1, 'svc__C': 0.1}
+0.676 (+/-0.168) for {'lr__C': 0.1, 'svc__C': 0.01}
+0.638 (+/-0.303) for {'lr__C': 0.1, 'svc__C': 1}
+0.618 (+/-0.181) for {'lr__C': 0.1, 'svc__C': 10}
+0.716 (+/-0.248) for {'lr__C': 1, 'svc__C': 0.001}
+0.696 (+/-0.196) for {'lr__C': 1, 'svc__C': 0.1}
+0.696 (+/-0.233) for {'lr__C': 1, 'svc__C': 0.01}
+0.676 (+/-0.234) for {'lr__C': 1, 'svc__C': 1}
+0.693 (+/-0.173) for {'lr__C': 1, 'svc__C': 10}
+0.696 (+/-0.233) for {'lr__C': 10, 'svc__C': 0.001}
+0.676 (+/-0.245) for {'lr__C': 10, 'svc__C': 0.1}
+0.696 (+/-0.233) for {'lr__C': 10, 'svc__C': 0.01}
+0.676 (+/-0.234) for {'lr__C': 10, 'svc__C': 1}
+0.675 (+/-0.131) for {'lr__C': 10, 'svc__C': 10}
+0.695 (+/-0.166) for {'lr__C': 100, 'svc__C': 0.001}
+0.735 (+/-0.234) for {'lr__C': 100, 'svc__C': 0.1}
+0.735 (+/-0.234) for {'lr__C': 100, 'svc__C': 0.01}
+0.676 (+/-0.234) for {'lr__C': 100, 'svc__C': 1}
+0.693 (+/-0.173) for {'lr__C': 100, 'svc__C': 10}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 75.4717
+Precision..: 73.8324
+Recall.....: 68.0952
+F1-Score...: 69.2320
+
+                      precision    recall  f1-score   support
+
+       Augchloropsis       0.88      0.88      0.88         8
+              Bombus       0.69      0.90      0.78        10
+             Centris       1.00      0.71      0.83         7
+             Eulaema       1.00      1.00      1.00         1
+          Exomalopis       0.71      0.62      0.67         8
+            Melipona       0.62      0.83      0.71        12
+Pseudoalglochloropsi       0.00      0.00      0.00         1
+            Xylocopa       1.00      0.50      0.67         6
+
+            accuracy                           0.75        53
+           macro avg       0.74      0.68      0.69        53
+        weighted avg       0.78      0.75      0.75        53
+
+
+# Tuning hyper-parameters for precision_macro
+
+Best parameters set found on development set:
+
+{'lr__C': 100, 'svc__C': 10}
+
+Grid scores on development set:
+
+0.044 (+/-0.019) for {'lr__C': 0.001, 'svc__C': 0.001}
+0.044 (+/-0.019) for {'lr__C': 0.001, 'svc__C': 0.1}
+0.044 (+/-0.019) for {'lr__C': 0.001, 'svc__C': 0.01}
+0.495 (+/-0.246) for {'lr__C': 0.001, 'svc__C': 1}
+0.524 (+/-0.188) for {'lr__C': 0.001, 'svc__C': 10}
+0.481 (+/-0.179) for {'lr__C': 0.1, 'svc__C': 0.001}
+0.548 (+/-0.250) for {'lr__C': 0.1, 'svc__C': 0.1}
+0.468 (+/-0.191) for {'lr__C': 0.1, 'svc__C': 0.01}
+0.496 (+/-0.279) for {'lr__C': 0.1, 'svc__C': 1}
+0.489 (+/-0.229) for {'lr__C': 0.1, 'svc__C': 10}
+0.553 (+/-0.274) for {'lr__C': 1, 'svc__C': 0.001}
+0.536 (+/-0.329) for {'lr__C': 1, 'svc__C': 0.1}
+0.553 (+/-0.274) for {'lr__C': 1, 'svc__C': 0.01}
+0.523 (+/-0.281) for {'lr__C': 1, 'svc__C': 1}
+0.596 (+/-0.215) for {'lr__C': 1, 'svc__C': 10}
+0.553 (+/-0.274) for {'lr__C': 10, 'svc__C': 0.001}
+0.548 (+/-0.256) for {'lr__C': 10, 'svc__C': 0.1}
+0.553 (+/-0.274) for {'lr__C': 10, 'svc__C': 0.01}
+0.555 (+/-0.263) for {'lr__C': 10, 'svc__C': 1}
+0.581 (+/-0.216) for {'lr__C': 10, 'svc__C': 10}
+0.562 (+/-0.275) for {'lr__C': 100, 'svc__C': 0.001}
+0.562 (+/-0.275) for {'lr__C': 100, 'svc__C': 0.1}
+0.591 (+/-0.332) for {'lr__C': 100, 'svc__C': 0.01}
+0.555 (+/-0.315) for {'lr__C': 100, 'svc__C': 1}
+0.604 (+/-0.238) for {'lr__C': 100, 'svc__C': 10}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 64.1509
+Precision..: 58.7151
+Recall.....: 47.9911
+F1-Score...: 48.2593
+
+                      precision    recall  f1-score   support
+
+       Augchloropsis       1.00      0.25      0.40         8
+              Bombus       0.59      1.00      0.74        10
+             Centris       1.00      0.71      0.83         7
+             Eulaema       0.00      0.00      0.00         1
+          Exomalopis       0.42      0.62      0.50         8
+            Melipona       0.69      0.75      0.72        12
+Pseudoalglochloropsi       0.00      0.00      0.00         1
+            Xylocopa       1.00      0.50      0.67         6
+
+            accuracy                           0.64        53
+           macro avg       0.59      0.48      0.48        53
+        weighted avg       0.73      0.64      0.62        53
+
+
+# Tuning hyper-parameters for recall_macro
+
+Best parameters set found on development set:
+
+{'lr__C': 1, 'svc__C': 0.001}
+
+Grid scores on development set:
+
+0.164 (+/-0.042) for {'lr__C': 0.001, 'svc__C': 0.001}
+0.164 (+/-0.042) for {'lr__C': 0.001, 'svc__C': 0.1}
+0.164 (+/-0.042) for {'lr__C': 0.001, 'svc__C': 0.01}
+0.596 (+/-0.189) for {'lr__C': 0.001, 'svc__C': 1}
+0.556 (+/-0.141) for {'lr__C': 0.001, 'svc__C': 10}
+0.613 (+/-0.216) for {'lr__C': 0.1, 'svc__C': 0.001}
+0.584 (+/-0.142) for {'lr__C': 0.1, 'svc__C': 0.1}
+0.573 (+/-0.121) for {'lr__C': 0.1, 'svc__C': 0.01}
+0.578 (+/-0.293) for {'lr__C': 0.1, 'svc__C': 1}
+0.552 (+/-0.140) for {'lr__C': 0.1, 'svc__C': 10}
+0.663 (+/-0.252) for {'lr__C': 1, 'svc__C': 0.001}
+0.606 (+/-0.207) for {'lr__C': 1, 'svc__C': 0.1}
+0.595 (+/-0.172) for {'lr__C': 1, 'svc__C': 0.01}
+0.640 (+/-0.204) for {'lr__C': 1, 'svc__C': 1}
+0.648 (+/-0.090) for {'lr__C': 1, 'svc__C': 10}
+0.606 (+/-0.207) for {'lr__C': 10, 'svc__C': 0.001}
+0.606 (+/-0.207) for {'lr__C': 10, 'svc__C': 0.1}
+0.617 (+/-0.245) for {'lr__C': 10, 'svc__C': 0.01}
+0.640 (+/-0.204) for {'lr__C': 10, 'svc__C': 1}
+0.645 (+/-0.121) for {'lr__C': 10, 'svc__C': 10}
+0.629 (+/-0.190) for {'lr__C': 100, 'svc__C': 0.001}
+0.590 (+/-0.097) for {'lr__C': 100, 'svc__C': 0.1}
+0.651 (+/-0.215) for {'lr__C': 100, 'svc__C': 0.01}
+0.660 (+/-0.240) for {'lr__C': 100, 'svc__C': 1}
+0.648 (+/-0.090) for {'lr__C': 100, 'svc__C': 10}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 71.6981
+Precision..: 72.7163
+Recall.....: 64.9702
+F1-Score...: 66.5210
+
+                      precision    recall  f1-score   support
+
+       Augchloropsis       1.00      0.62      0.77         8
+              Bombus       0.69      0.90      0.78        10
+             Centris       1.00      0.71      0.83         7
+             Eulaema       1.00      1.00      1.00         1
+          Exomalopis       0.50      0.62      0.56         8
+            Melipona       0.62      0.83      0.71        12
+Pseudoalglochloropsi       0.00      0.00      0.00         1
+            Xylocopa       1.00      0.50      0.67         6
+
+            accuracy                           0.72        53
+           macro avg       0.73      0.65      0.67        53
+        weighted avg       0.76      0.72      0.71        53
+
+
+# Tuning hyper-parameters for f1_macro
+
+Best parameters set found on development set:
+
+{'lr__C': 10, 'svc__C': 0.01}
+
+Grid scores on development set:
+
+0.070 (+/-0.027) for {'lr__C': 0.001, 'svc__C': 0.001}
+0.070 (+/-0.027) for {'lr__C': 0.001, 'svc__C': 0.1}
+0.070 (+/-0.027) for {'lr__C': 0.001, 'svc__C': 0.01}
+0.520 (+/-0.194) for {'lr__C': 0.001, 'svc__C': 1}
+0.507 (+/-0.120) for {'lr__C': 0.001, 'svc__C': 10}
+0.520 (+/-0.147) for {'lr__C': 0.1, 'svc__C': 0.001}
+0.515 (+/-0.239) for {'lr__C': 0.1, 'svc__C': 0.1}
+0.520 (+/-0.147) for {'lr__C': 0.1, 'svc__C': 0.01}
+0.522 (+/-0.270) for {'lr__C': 0.1, 'svc__C': 1}
+0.482 (+/-0.161) for {'lr__C': 0.1, 'svc__C': 10}
+0.558 (+/-0.268) for {'lr__C': 1, 'svc__C': 0.001}
+0.585 (+/-0.256) for {'lr__C': 1, 'svc__C': 0.1}
+0.504 (+/-0.118) for {'lr__C': 1, 'svc__C': 0.01}
+0.569 (+/-0.202) for {'lr__C': 1, 'svc__C': 1}
+0.584 (+/-0.121) for {'lr__C': 1, 'svc__C': 10}
+0.559 (+/-0.267) for {'lr__C': 10, 'svc__C': 0.001}
+0.557 (+/-0.269) for {'lr__C': 10, 'svc__C': 0.1}
+0.618 (+/-0.281) for {'lr__C': 10, 'svc__C': 0.01}
+0.559 (+/-0.241) for {'lr__C': 10, 'svc__C': 1}
+0.565 (+/-0.107) for {'lr__C': 10, 'svc__C': 10}
+0.574 (+/-0.256) for {'lr__C': 100, 'svc__C': 0.001}
+0.556 (+/-0.196) for {'lr__C': 100, 'svc__C': 0.1}
+0.556 (+/-0.196) for {'lr__C': 100, 'svc__C': 0.01}
+0.543 (+/-0.277) for {'lr__C': 100, 'svc__C': 1}
+0.600 (+/-0.148) for {'lr__C': 100, 'svc__C': 10}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 73.5849
+Precision..: 72.4931
+Recall.....: 66.5327
+F1-Score...: 67.7737
+
+                      precision    recall  f1-score   support
+
+       Augchloropsis       0.86      0.75      0.80         8
+              Bombus       0.69      0.90      0.78        10
+             Centris       1.00      0.71      0.83         7
+             Eulaema       1.00      1.00      1.00         1
+          Exomalopis       0.62      0.62      0.62         8
+            Melipona       0.62      0.83      0.71        12
+Pseudoalglochloropsi       0.00      0.00      0.00         1
+            Xylocopa       1.00      0.50      0.67         6
+
+            accuracy                           0.74        53
+           macro avg       0.72      0.67      0.68        53
+        weighted avg       0.76      0.74      0.73        53
+
+

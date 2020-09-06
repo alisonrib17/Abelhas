@@ -1,0 +1,164 @@
+# Tuning hyper-parameters for accuracy
+
+Best parameters set found on development set:
+
+{'max_features': 'log2', 'n_estimators': 200}
+
+Grid scores on development set:
+
+0.845 (+/-0.090) for {'max_features': 'auto', 'n_estimators': 100}
+0.854 (+/-0.119) for {'max_features': 'auto', 'n_estimators': 200}
+0.863 (+/-0.055) for {'max_features': 'sqrt', 'n_estimators': 100}
+0.854 (+/-0.087) for {'max_features': 'sqrt', 'n_estimators': 200}
+0.845 (+/-0.122) for {'max_features': 'log2', 'n_estimators': 100}
+0.863 (+/-0.127) for {'max_features': 'log2', 'n_estimators': 200}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 80.0000
+Precision..: 53.2882
+Recall.....: 50.9191
+F1-Score...: 50.4484
+
+                      precision    recall  f1-score   support
+
+       Augchloropsis       1.00      0.75      0.86        16
+              Bombus       0.64      0.82      0.72        17
+             Centris       0.00      0.00      0.00         5
+             Eulaema       0.00      0.00      0.00         1
+          Exomalopis       0.81      1.00      0.89        38
+            Melipona       0.82      1.00      0.90        18
+Pseudoalglochloropsi       1.00      0.50      0.67        12
+            Xylocopa       0.00      0.00      0.00         3
+
+            accuracy                           0.80       110
+           macro avg       0.53      0.51      0.50       110
+        weighted avg       0.77      0.80      0.76       110
+
+
+# Tuning hyper-parameters for precision_macro
+
+Best parameters set found on development set:
+
+{'max_features': 'sqrt', 'n_estimators': 100}
+
+Grid scores on development set:
+
+0.661 (+/-0.341) for {'max_features': 'auto', 'n_estimators': 100}
+0.743 (+/-0.272) for {'max_features': 'auto', 'n_estimators': 200}
+0.773 (+/-0.311) for {'max_features': 'sqrt', 'n_estimators': 100}
+0.748 (+/-0.359) for {'max_features': 'sqrt', 'n_estimators': 200}
+0.696 (+/-0.354) for {'max_features': 'log2', 'n_estimators': 100}
+0.674 (+/-0.327) for {'max_features': 'log2', 'n_estimators': 200}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 79.0909
+Precision..: 53.2223
+Recall.....: 50.2298
+F1-Score...: 50.2637
+
+                      precision    recall  f1-score   support
+
+       Augchloropsis       1.00      0.81      0.90        16
+              Bombus       0.67      0.71      0.69        17
+             Centris       0.00      0.00      0.00         5
+             Eulaema       0.00      0.00      0.00         1
+          Exomalopis       0.81      1.00      0.89        38
+            Melipona       0.78      1.00      0.88        18
+Pseudoalglochloropsi       1.00      0.50      0.67        12
+            Xylocopa       0.00      0.00      0.00         3
+
+            accuracy                           0.79       110
+           macro avg       0.53      0.50      0.50       110
+        weighted avg       0.76      0.79      0.76       110
+
+
+# Tuning hyper-parameters for recall_macro
+
+Best parameters set found on development set:
+
+{'max_features': 'sqrt', 'n_estimators': 200}
+
+Grid scores on development set:
+
+0.665 (+/-0.228) for {'max_features': 'auto', 'n_estimators': 100}
+0.710 (+/-0.227) for {'max_features': 'auto', 'n_estimators': 200}
+0.721 (+/-0.292) for {'max_features': 'sqrt', 'n_estimators': 100}
+0.735 (+/-0.241) for {'max_features': 'sqrt', 'n_estimators': 200}
+0.667 (+/-0.314) for {'max_features': 'log2', 'n_estimators': 100}
+0.707 (+/-0.313) for {'max_features': 'log2', 'n_estimators': 200}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 80.9091
+Precision..: 53.1021
+Recall.....: 51.7004
+F1-Score...: 50.9890
+
+                      precision    recall  f1-score   support
+
+       Augchloropsis       0.93      0.81      0.87        16
+              Bombus       0.64      0.82      0.72        17
+             Centris       0.00      0.00      0.00         5
+             Eulaema       0.00      0.00      0.00         1
+          Exomalopis       0.83      1.00      0.90        38
+            Melipona       0.86      1.00      0.92        18
+Pseudoalglochloropsi       1.00      0.50      0.67        12
+            Xylocopa       0.00      0.00      0.00         3
+
+            accuracy                           0.81       110
+           macro avg       0.53      0.52      0.51       110
+        weighted avg       0.77      0.81      0.77       110
+
+
+# Tuning hyper-parameters for f1_macro
+
+Best parameters set found on development set:
+
+{'max_features': 'log2', 'n_estimators': 200}
+
+Grid scores on development set:
+
+0.637 (+/-0.281) for {'max_features': 'auto', 'n_estimators': 100}
+0.720 (+/-0.349) for {'max_features': 'auto', 'n_estimators': 200}
+0.679 (+/-0.269) for {'max_features': 'sqrt', 'n_estimators': 100}
+0.703 (+/-0.293) for {'max_features': 'sqrt', 'n_estimators': 200}
+0.701 (+/-0.323) for {'max_features': 'log2', 'n_estimators': 100}
+0.741 (+/-0.310) for {'max_features': 'log2', 'n_estimators': 200}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 80.0000
+Precision..: 53.2223
+Recall.....: 50.9191
+F1-Score...: 50.4102
+
+                      precision    recall  f1-score   support
+
+       Augchloropsis       1.00      0.75      0.86        16
+              Bombus       0.67      0.82      0.74        17
+             Centris       0.00      0.00      0.00         5
+             Eulaema       0.00      0.00      0.00         1
+          Exomalopis       0.81      1.00      0.89        38
+            Melipona       0.78      1.00      0.88        18
+Pseudoalglochloropsi       1.00      0.50      0.67        12
+            Xylocopa       0.00      0.00      0.00         3
+
+            accuracy                           0.80       110
+           macro avg       0.53      0.51      0.50       110
+        weighted avg       0.76      0.80      0.76       110
+
+

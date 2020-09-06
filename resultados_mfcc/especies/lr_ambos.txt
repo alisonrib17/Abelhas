@@ -1,0 +1,196 @@
+# Tuning hyper-parameters for accuracy
+
+Best parameters set found on development set:
+
+{'penalty': 'l2'}
+
+Grid scores on development set:
+
+nan (+/-nan) for {'penalty': 'l1'}
+0.581 (+/-0.179) for {'penalty': 'l2'}
+0.244 (+/-0.073) for {'C': 0.001}
+0.556 (+/-0.121) for {'C': 0.1}
+0.581 (+/-0.179) for {'C': 1}
+0.575 (+/-0.151) for {'C': 10}
+0.562 (+/-0.172) for {'C': 100}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 50.3106
+Precision..: 42.7628
+Recall.....: 39.4469
+F1-Score...: 37.4938
+
+                                precision    recall  f1-score   support
+
+  Augochloropsis_brachycephala       0.00      0.00      0.00         3
+            Augochloropsis_sp1       0.55      0.55      0.55        11
+            Augochloropsis_sp2       1.00      0.43      0.60         7
+                  Bombus_morio       0.38      0.23      0.29        13
+             Bombus_pauloensis       0.26      0.38      0.31        13
+               Centris_tarsata       0.25      0.67      0.36         3
+           Centris_trigonoides       0.75      0.43      0.55         7
+               Eulaema_nigrita       0.00      0.00      0.00         1
+            Exomalopsis_analis       0.70      0.76      0.73        41
+             Exomalopsis_minor       1.00      0.45      0.62        11
+              Melipona_bicolor       0.44      0.52      0.48        23
+       Melipona_quadrifasciata       0.50      0.30      0.37        10
+Pseudoalglochloropsis_graminea       0.40      1.00      0.57         6
+          Xylocopa_nigrocincta       0.18      0.20      0.19        10
+             Xylocopa_suspecta       0.00      0.00      0.00         2
+
+                      accuracy                           0.50       161
+                     macro avg       0.43      0.39      0.37       161
+                  weighted avg       0.54      0.50      0.50       161
+
+
+# Tuning hyper-parameters for precision_macro
+
+Best parameters set found on development set:
+
+{'C': 10}
+
+Grid scores on development set:
+
+nan (+/-nan) for {'penalty': 'l1'}
+0.458 (+/-0.113) for {'penalty': 'l2'}
+0.053 (+/-0.067) for {'C': 0.001}
+0.386 (+/-0.069) for {'C': 0.1}
+0.458 (+/-0.113) for {'C': 1}
+0.498 (+/-0.135) for {'C': 10}
+0.478 (+/-0.153) for {'C': 100}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 53.4161
+Precision..: 53.6747
+Recall.....: 51.3621
+F1-Score...: 48.6180
+
+                                precision    recall  f1-score   support
+
+  Augochloropsis_brachycephala       0.00      0.00      0.00         3
+            Augochloropsis_sp1       0.46      0.55      0.50        11
+            Augochloropsis_sp2       1.00      0.43      0.60         7
+                  Bombus_morio       0.40      0.31      0.35        13
+             Bombus_pauloensis       0.35      0.54      0.42        13
+               Centris_tarsata       0.29      0.67      0.40         3
+           Centris_trigonoides       0.75      0.43      0.55         7
+               Eulaema_nigrita       0.50      1.00      0.67         1
+            Exomalopsis_analis       0.72      0.76      0.74        41
+             Exomalopsis_minor       0.83      0.45      0.59        11
+              Melipona_bicolor       0.48      0.48      0.48        23
+       Melipona_quadrifasciata       0.57      0.40      0.47        10
+Pseudoalglochloropsis_graminea       0.50      1.00      0.67         6
+          Xylocopa_nigrocincta       0.20      0.20      0.20        10
+             Xylocopa_suspecta       1.00      0.50      0.67         2
+
+                      accuracy                           0.53       161
+                     macro avg       0.54      0.51      0.49       161
+                  weighted avg       0.56      0.53      0.53       161
+
+
+# Tuning hyper-parameters for recall_macro
+
+Best parameters set found on development set:
+
+{'C': 10}
+
+Grid scores on development set:
+
+nan (+/-nan) for {'penalty': 'l1'}
+0.524 (+/-0.128) for {'penalty': 'l2'}
+0.095 (+/-0.030) for {'C': 0.001}
+0.437 (+/-0.062) for {'C': 0.1}
+0.524 (+/-0.128) for {'C': 1}
+0.547 (+/-0.088) for {'C': 10}
+0.541 (+/-0.097) for {'C': 100}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 53.4161
+Precision..: 53.6747
+Recall.....: 51.3621
+F1-Score...: 48.6180
+
+                                precision    recall  f1-score   support
+
+  Augochloropsis_brachycephala       0.00      0.00      0.00         3
+            Augochloropsis_sp1       0.46      0.55      0.50        11
+            Augochloropsis_sp2       1.00      0.43      0.60         7
+                  Bombus_morio       0.40      0.31      0.35        13
+             Bombus_pauloensis       0.35      0.54      0.42        13
+               Centris_tarsata       0.29      0.67      0.40         3
+           Centris_trigonoides       0.75      0.43      0.55         7
+               Eulaema_nigrita       0.50      1.00      0.67         1
+            Exomalopsis_analis       0.72      0.76      0.74        41
+             Exomalopsis_minor       0.83      0.45      0.59        11
+              Melipona_bicolor       0.48      0.48      0.48        23
+       Melipona_quadrifasciata       0.57      0.40      0.47        10
+Pseudoalglochloropsis_graminea       0.50      1.00      0.67         6
+          Xylocopa_nigrocincta       0.20      0.20      0.20        10
+             Xylocopa_suspecta       1.00      0.50      0.67         2
+
+                      accuracy                           0.53       161
+                     macro avg       0.54      0.51      0.49       161
+                  weighted avg       0.56      0.53      0.53       161
+
+
+# Tuning hyper-parameters for f1_macro
+
+Best parameters set found on development set:
+
+{'C': 10}
+
+Grid scores on development set:
+
+nan (+/-nan) for {'penalty': 'l1'}
+0.466 (+/-0.117) for {'penalty': 'l2'}
+0.052 (+/-0.042) for {'C': 0.001}
+0.393 (+/-0.073) for {'C': 0.1}
+0.466 (+/-0.117) for {'C': 1}
+0.492 (+/-0.086) for {'C': 10}
+0.476 (+/-0.103) for {'C': 100}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 53.4161
+Precision..: 53.6747
+Recall.....: 51.3621
+F1-Score...: 48.6180
+
+                                precision    recall  f1-score   support
+
+  Augochloropsis_brachycephala       0.00      0.00      0.00         3
+            Augochloropsis_sp1       0.46      0.55      0.50        11
+            Augochloropsis_sp2       1.00      0.43      0.60         7
+                  Bombus_morio       0.40      0.31      0.35        13
+             Bombus_pauloensis       0.35      0.54      0.42        13
+               Centris_tarsata       0.29      0.67      0.40         3
+           Centris_trigonoides       0.75      0.43      0.55         7
+               Eulaema_nigrita       0.50      1.00      0.67         1
+            Exomalopsis_analis       0.72      0.76      0.74        41
+             Exomalopsis_minor       0.83      0.45      0.59        11
+              Melipona_bicolor       0.48      0.48      0.48        23
+       Melipona_quadrifasciata       0.57      0.40      0.47        10
+Pseudoalglochloropsis_graminea       0.50      1.00      0.67         6
+          Xylocopa_nigrocincta       0.20      0.20      0.20        10
+             Xylocopa_suspecta       1.00      0.50      0.67         2
+
+                      accuracy                           0.53       161
+                     macro avg       0.54      0.51      0.49       161
+                  weighted avg       0.56      0.53      0.53       161
+
+

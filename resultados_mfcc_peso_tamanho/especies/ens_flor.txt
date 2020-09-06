@@ -1,0 +1,268 @@
+# Tuning hyper-parameters for accuracy
+
+Best parameters set found on development set:
+
+{'lr__C': 1, 'svc__C': 10}
+
+Grid scores on development set:
+
+0.303 (+/-0.039) for {'lr__C': 0.001, 'svc__C': 0.001}
+0.303 (+/-0.039) for {'lr__C': 0.001, 'svc__C': 0.1}
+0.303 (+/-0.039) for {'lr__C': 0.001, 'svc__C': 0.01}
+0.615 (+/-0.154) for {'lr__C': 0.001, 'svc__C': 1}
+0.661 (+/-0.091) for {'lr__C': 0.001, 'svc__C': 10}
+0.642 (+/-0.062) for {'lr__C': 0.1, 'svc__C': 0.001}
+0.670 (+/-0.067) for {'lr__C': 0.1, 'svc__C': 0.1}
+0.652 (+/-0.038) for {'lr__C': 0.1, 'svc__C': 0.01}
+0.661 (+/-0.041) for {'lr__C': 0.1, 'svc__C': 1}
+0.697 (+/-0.096) for {'lr__C': 0.1, 'svc__C': 10}
+0.606 (+/-0.069) for {'lr__C': 1, 'svc__C': 0.001}
+0.633 (+/-0.075) for {'lr__C': 1, 'svc__C': 0.1}
+0.615 (+/-0.085) for {'lr__C': 1, 'svc__C': 0.01}
+0.670 (+/-0.067) for {'lr__C': 1, 'svc__C': 1}
+0.724 (+/-0.067) for {'lr__C': 1, 'svc__C': 10}
+0.615 (+/-0.091) for {'lr__C': 10, 'svc__C': 0.001}
+0.606 (+/-0.069) for {'lr__C': 10, 'svc__C': 0.1}
+0.615 (+/-0.091) for {'lr__C': 10, 'svc__C': 0.01}
+0.679 (+/-0.100) for {'lr__C': 10, 'svc__C': 1}
+0.688 (+/-0.041) for {'lr__C': 10, 'svc__C': 10}
+0.615 (+/-0.041) for {'lr__C': 100, 'svc__C': 0.001}
+0.615 (+/-0.071) for {'lr__C': 100, 'svc__C': 0.1}
+0.633 (+/-0.059) for {'lr__C': 100, 'svc__C': 0.01}
+0.679 (+/-0.100) for {'lr__C': 100, 'svc__C': 1}
+0.697 (+/-0.051) for {'lr__C': 100, 'svc__C': 10}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 74.3119
+Precision..: 49.9312
+Recall.....: 46.7256
+F1-Score...: 47.1040
+
+                                precision    recall  f1-score   support
+
+  Augochloropsis_brachycephala       0.00      0.00      0.00         1
+            Augochloropsis_sp1       0.75      0.50      0.60         6
+            Augochloropsis_sp2       1.00      0.78      0.88         9
+                  Bombus_morio       0.86      0.75      0.80         8
+             Bombus_pauloensis       0.54      0.88      0.67         8
+               Centris_tarsata       0.00      0.00      0.00         2
+           Centris_trigonoides       0.00      0.00      0.00         2
+               Eulaema_nigrita       0.00      0.00      0.00         1
+            Exomalopsis_analis       0.69      0.97      0.81        30
+             Exomalopsis_minor       1.00      0.55      0.71        11
+              Melipona_bicolor       0.76      0.87      0.81        15
+       Melipona_quadrifasciata       0.50      0.50      0.50         2
+Pseudoalglochloropsis_graminea       0.89      0.73      0.80        11
+          Xylocopa_nigrocincta       0.50      0.50      0.50         2
+             Xylocopa_suspecta       0.00      0.00      0.00         1
+
+                      accuracy                           0.74       109
+                     macro avg       0.50      0.47      0.47       109
+                  weighted avg       0.73      0.74      0.72       109
+
+
+# Tuning hyper-parameters for precision_macro
+
+Best parameters set found on development set:
+
+{'lr__C': 1, 'svc__C': 10}
+
+Grid scores on development set:
+
+0.029 (+/-0.004) for {'lr__C': 0.001, 'svc__C': 0.001}
+0.029 (+/-0.004) for {'lr__C': 0.001, 'svc__C': 0.1}
+0.029 (+/-0.004) for {'lr__C': 0.001, 'svc__C': 0.01}
+0.383 (+/-0.136) for {'lr__C': 0.001, 'svc__C': 1}
+0.433 (+/-0.273) for {'lr__C': 0.001, 'svc__C': 10}
+0.402 (+/-0.148) for {'lr__C': 0.1, 'svc__C': 0.001}
+0.412 (+/-0.088) for {'lr__C': 0.1, 'svc__C': 0.1}
+0.398 (+/-0.144) for {'lr__C': 0.1, 'svc__C': 0.01}
+0.418 (+/-0.177) for {'lr__C': 0.1, 'svc__C': 1}
+0.514 (+/-0.141) for {'lr__C': 0.1, 'svc__C': 10}
+0.417 (+/-0.088) for {'lr__C': 1, 'svc__C': 0.001}
+0.413 (+/-0.083) for {'lr__C': 1, 'svc__C': 0.1}
+0.415 (+/-0.092) for {'lr__C': 1, 'svc__C': 0.01}
+0.465 (+/-0.199) for {'lr__C': 1, 'svc__C': 1}
+0.520 (+/-0.138) for {'lr__C': 1, 'svc__C': 10}
+0.393 (+/-0.098) for {'lr__C': 10, 'svc__C': 0.001}
+0.441 (+/-0.148) for {'lr__C': 10, 'svc__C': 0.1}
+0.411 (+/-0.091) for {'lr__C': 10, 'svc__C': 0.01}
+0.435 (+/-0.229) for {'lr__C': 10, 'svc__C': 1}
+0.485 (+/-0.093) for {'lr__C': 10, 'svc__C': 10}
+0.414 (+/-0.105) for {'lr__C': 100, 'svc__C': 0.001}
+0.410 (+/-0.105) for {'lr__C': 100, 'svc__C': 0.1}
+0.414 (+/-0.103) for {'lr__C': 100, 'svc__C': 0.01}
+0.447 (+/-0.237) for {'lr__C': 100, 'svc__C': 1}
+0.480 (+/-0.108) for {'lr__C': 100, 'svc__C': 10}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 78.8991
+Precision..: 57.6909
+Recall.....: 58.9562
+F1-Score...: 57.3682
+
+                                precision    recall  f1-score   support
+
+  Augochloropsis_brachycephala       1.00      1.00      1.00         1
+            Augochloropsis_sp1       0.67      0.67      0.67         6
+            Augochloropsis_sp2       1.00      0.89      0.94         9
+                  Bombus_morio       0.86      0.75      0.80         8
+             Bombus_pauloensis       0.50      0.75      0.60         8
+               Centris_tarsata       0.00      0.00      0.00         2
+           Centris_trigonoides       0.00      0.00      0.00         2
+               Eulaema_nigrita       0.00      0.00      0.00         1
+            Exomalopsis_analis       0.76      0.97      0.85        30
+             Exomalopsis_minor       1.00      0.64      0.78        11
+              Melipona_bicolor       0.87      0.87      0.87        15
+       Melipona_quadrifasciata       0.67      1.00      0.80         2
+Pseudoalglochloropsis_graminea       1.00      0.82      0.90        11
+          Xylocopa_nigrocincta       0.33      0.50      0.40         2
+             Xylocopa_suspecta       0.00      0.00      0.00         1
+
+                      accuracy                           0.79       109
+                     macro avg       0.58      0.59      0.57       109
+                  weighted avg       0.78      0.79      0.77       109
+
+
+# Tuning hyper-parameters for recall_macro
+
+Best parameters set found on development set:
+
+{'lr__C': 0.1, 'svc__C': 10}
+
+Grid scores on development set:
+
+0.095 (+/-0.009) for {'lr__C': 0.001, 'svc__C': 0.001}
+0.095 (+/-0.009) for {'lr__C': 0.001, 'svc__C': 0.1}
+0.095 (+/-0.009) for {'lr__C': 0.001, 'svc__C': 0.01}
+0.433 (+/-0.235) for {'lr__C': 0.001, 'svc__C': 1}
+0.487 (+/-0.164) for {'lr__C': 0.001, 'svc__C': 10}
+0.451 (+/-0.105) for {'lr__C': 0.1, 'svc__C': 0.001}
+0.442 (+/-0.093) for {'lr__C': 0.1, 'svc__C': 0.1}
+0.469 (+/-0.101) for {'lr__C': 0.1, 'svc__C': 0.01}
+0.444 (+/-0.067) for {'lr__C': 0.1, 'svc__C': 1}
+0.552 (+/-0.105) for {'lr__C': 0.1, 'svc__C': 10}
+0.421 (+/-0.117) for {'lr__C': 1, 'svc__C': 0.001}
+0.439 (+/-0.132) for {'lr__C': 1, 'svc__C': 0.1}
+0.410 (+/-0.067) for {'lr__C': 1, 'svc__C': 0.01}
+0.498 (+/-0.102) for {'lr__C': 1, 'svc__C': 1}
+0.537 (+/-0.100) for {'lr__C': 1, 'svc__C': 10}
+0.441 (+/-0.142) for {'lr__C': 10, 'svc__C': 0.001}
+0.441 (+/-0.050) for {'lr__C': 10, 'svc__C': 0.1}
+0.468 (+/-0.140) for {'lr__C': 10, 'svc__C': 0.01}
+0.509 (+/-0.147) for {'lr__C': 10, 'svc__C': 1}
+0.516 (+/-0.127) for {'lr__C': 10, 'svc__C': 10}
+0.438 (+/-0.102) for {'lr__C': 100, 'svc__C': 0.001}
+0.423 (+/-0.101) for {'lr__C': 100, 'svc__C': 0.1}
+0.414 (+/-0.097) for {'lr__C': 100, 'svc__C': 0.01}
+0.498 (+/-0.093) for {'lr__C': 100, 'svc__C': 1}
+0.507 (+/-0.155) for {'lr__C': 100, 'svc__C': 10}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 67.8899
+Precision..: 49.9524
+Recall.....: 45.0152
+F1-Score...: 43.2629
+
+                                precision    recall  f1-score   support
+
+  Augochloropsis_brachycephala       0.00      0.00      0.00         1
+            Augochloropsis_sp1       0.75      0.50      0.60         6
+            Augochloropsis_sp2       1.00      0.67      0.80         9
+                  Bombus_morio       0.86      0.75      0.80         8
+             Bombus_pauloensis       0.50      0.88      0.64         8
+               Centris_tarsata       0.00      0.00      0.00         2
+           Centris_trigonoides       0.00      0.00      0.00         2
+               Eulaema_nigrita       0.00      0.00      0.00         1
+            Exomalopsis_analis       0.60      1.00      0.75        30
+             Exomalopsis_minor       1.00      0.09      0.17        11
+              Melipona_bicolor       0.79      0.73      0.76        15
+       Melipona_quadrifasciata       0.67      1.00      0.80         2
+Pseudoalglochloropsis_graminea       1.00      0.64      0.78        11
+          Xylocopa_nigrocincta       0.33      0.50      0.40         2
+             Xylocopa_suspecta       0.00      0.00      0.00         1
+
+                      accuracy                           0.68       109
+                     macro avg       0.50      0.45      0.43       109
+                  weighted avg       0.72      0.68      0.63       109
+
+
+# Tuning hyper-parameters for f1_macro
+
+Best parameters set found on development set:
+
+{'lr__C': 100, 'svc__C': 10}
+
+Grid scores on development set:
+
+0.044 (+/-0.006) for {'lr__C': 0.001, 'svc__C': 0.001}
+0.044 (+/-0.006) for {'lr__C': 0.001, 'svc__C': 0.1}
+0.044 (+/-0.006) for {'lr__C': 0.001, 'svc__C': 0.01}
+0.377 (+/-0.148) for {'lr__C': 0.001, 'svc__C': 1}
+0.446 (+/-0.225) for {'lr__C': 0.001, 'svc__C': 10}
+0.392 (+/-0.107) for {'lr__C': 0.1, 'svc__C': 0.001}
+0.422 (+/-0.136) for {'lr__C': 0.1, 'svc__C': 0.1}
+0.424 (+/-0.085) for {'lr__C': 0.1, 'svc__C': 0.01}
+0.390 (+/-0.092) for {'lr__C': 0.1, 'svc__C': 1}
+0.475 (+/-0.059) for {'lr__C': 0.1, 'svc__C': 10}
+0.399 (+/-0.134) for {'lr__C': 1, 'svc__C': 0.001}
+0.402 (+/-0.136) for {'lr__C': 1, 'svc__C': 0.1}
+0.387 (+/-0.106) for {'lr__C': 1, 'svc__C': 0.01}
+0.424 (+/-0.159) for {'lr__C': 1, 'svc__C': 1}
+0.480 (+/-0.151) for {'lr__C': 1, 'svc__C': 10}
+0.378 (+/-0.120) for {'lr__C': 10, 'svc__C': 0.001}
+0.389 (+/-0.092) for {'lr__C': 10, 'svc__C': 0.1}
+0.376 (+/-0.090) for {'lr__C': 10, 'svc__C': 0.01}
+0.446 (+/-0.203) for {'lr__C': 10, 'svc__C': 1}
+0.462 (+/-0.033) for {'lr__C': 10, 'svc__C': 10}
+0.387 (+/-0.120) for {'lr__C': 100, 'svc__C': 0.001}
+0.380 (+/-0.090) for {'lr__C': 100, 'svc__C': 0.1}
+0.390 (+/-0.130) for {'lr__C': 100, 'svc__C': 0.01}
+0.435 (+/-0.191) for {'lr__C': 100, 'svc__C': 1}
+0.485 (+/-0.151) for {'lr__C': 100, 'svc__C': 10}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 75.2294
+Precision..: 48.2075
+Recall.....: 47.4933
+F1-Score...: 47.0247
+
+                                precision    recall  f1-score   support
+
+  Augochloropsis_brachycephala       0.00      0.00      0.00         1
+            Augochloropsis_sp1       0.50      0.50      0.50         6
+            Augochloropsis_sp2       1.00      0.78      0.88         9
+                  Bombus_morio       0.75      0.75      0.75         8
+             Bombus_pauloensis       0.58      0.88      0.70         8
+               Centris_tarsata       0.00      0.00      0.00         2
+           Centris_trigonoides       0.00      0.00      0.00         2
+               Eulaema_nigrita       0.00      0.00      0.00         1
+            Exomalopsis_analis       0.71      0.97      0.82        30
+             Exomalopsis_minor       1.00      0.73      0.84        11
+              Melipona_bicolor       0.86      0.80      0.83        15
+       Melipona_quadrifasciata       0.33      0.50      0.40         2
+Pseudoalglochloropsis_graminea       1.00      0.73      0.84        11
+          Xylocopa_nigrocincta       0.50      0.50      0.50         2
+             Xylocopa_suspecta       0.00      0.00      0.00         1
+
+                      accuracy                           0.75       109
+                     macro avg       0.48      0.47      0.47       109
+                  weighted avg       0.74      0.75      0.73       109
+
+

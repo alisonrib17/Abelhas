@@ -1,0 +1,207 @@
+# Tuning hyper-parameters for accuracy
+
+Best parameters set found on development set:
+
+{'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 10}
+
+Grid scores on development set:
+
+0.351 (+/-0.284) for {'criterion': 'gini', 'max_depth': 2, 'min_samples_split': 2}
+0.351 (+/-0.284) for {'criterion': 'gini', 'max_depth': 2, 'min_samples_split': 10}
+0.427 (+/-0.382) for {'criterion': 'gini', 'max_depth': 5, 'min_samples_split': 2}
+0.487 (+/-0.488) for {'criterion': 'gini', 'max_depth': 5, 'min_samples_split': 10}
+0.405 (+/-0.453) for {'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}
+0.487 (+/-0.488) for {'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 10}
+0.371 (+/-0.217) for {'criterion': 'entropy', 'max_depth': 2, 'min_samples_split': 2}
+0.371 (+/-0.217) for {'criterion': 'entropy', 'max_depth': 2, 'min_samples_split': 10}
+0.449 (+/-0.334) for {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 2}
+0.507 (+/-0.367) for {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 10}
+0.489 (+/-0.159) for {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 2}
+0.507 (+/-0.266) for {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 10}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 55.7692
+Precision..: 44.2766
+Recall.....: 48.3974
+F1-Score...: 43.9713
+
+                                precision    recall  f1-score   support
+
+            Augochloropsis_sp1       0.00      0.00      0.00         8
+            Augochloropsis_sp2       0.00      0.00      0.00         0
+                  Bombus_morio       0.50      1.00      0.67         5
+             Bombus_pauloensis       0.50      0.20      0.29         5
+               Centris_tarsata       1.00      1.00      1.00         1
+           Centris_trigonoides       1.00      1.00      1.00         6
+            Exomalopsis_analis       0.21      0.75      0.33         4
+             Exomalopsis_minor       0.00      0.00      0.00         4
+              Melipona_bicolor       0.88      0.88      0.88         8
+       Melipona_quadrifasciata       0.67      0.67      0.67         3
+Pseudoalglochloropsis_graminea       0.00      0.00      0.00         2
+          Xylocopa_nigrocincta       1.00      0.80      0.89         5
+             Xylocopa_suspecta       0.00      0.00      0.00         1
+
+                      accuracy                           0.56        52
+                     macro avg       0.44      0.48      0.44        52
+                  weighted avg       0.52      0.56      0.51        52
+
+
+# Tuning hyper-parameters for precision_macro
+
+Best parameters set found on development set:
+
+{'criterion': 'gini', 'max_depth': 5, 'min_samples_split': 10}
+
+Grid scores on development set:
+
+0.130 (+/-0.136) for {'criterion': 'gini', 'max_depth': 2, 'min_samples_split': 2}
+0.158 (+/-0.163) for {'criterion': 'gini', 'max_depth': 2, 'min_samples_split': 10}
+0.362 (+/-0.339) for {'criterion': 'gini', 'max_depth': 5, 'min_samples_split': 2}
+0.421 (+/-0.399) for {'criterion': 'gini', 'max_depth': 5, 'min_samples_split': 10}
+0.294 (+/-0.330) for {'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}
+0.317 (+/-0.363) for {'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 10}
+0.156 (+/-0.126) for {'criterion': 'entropy', 'max_depth': 2, 'min_samples_split': 2}
+0.180 (+/-0.087) for {'criterion': 'entropy', 'max_depth': 2, 'min_samples_split': 10}
+0.394 (+/-0.124) for {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 2}
+0.347 (+/-0.217) for {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 10}
+0.321 (+/-0.159) for {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 2}
+0.314 (+/-0.209) for {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 10}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 55.7692
+Precision..: 34.8380
+Recall.....: 55.6250
+F1-Score...: 40.5909
+
+                                precision    recall  f1-score   support
+
+            Augochloropsis_sp1       0.00      0.00      0.00         8
+                  Bombus_morio       0.83      1.00      0.91         5
+             Bombus_pauloensis       0.44      0.80      0.57         5
+               Centris_tarsata       0.33      1.00      0.50         1
+           Centris_trigonoides       0.00      0.00      0.00         6
+            Exomalopsis_analis       0.44      1.00      0.62         4
+             Exomalopsis_minor       0.00      0.00      0.00         4
+              Melipona_bicolor       0.88      0.88      0.88         8
+       Melipona_quadrifasciata       0.25      1.00      0.40         3
+Pseudoalglochloropsis_graminea       0.00      0.00      0.00         2
+          Xylocopa_nigrocincta       1.00      1.00      1.00         5
+             Xylocopa_suspecta       0.00      0.00      0.00         1
+
+                      accuracy                           0.56        52
+                     macro avg       0.35      0.56      0.41        52
+                  weighted avg       0.41      0.56      0.45        52
+
+
+# Tuning hyper-parameters for recall_macro
+
+Best parameters set found on development set:
+
+{'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 2}
+
+Grid scores on development set:
+
+0.294 (+/-0.197) for {'criterion': 'gini', 'max_depth': 2, 'min_samples_split': 2}
+0.294 (+/-0.197) for {'criterion': 'gini', 'max_depth': 2, 'min_samples_split': 10}
+0.480 (+/-0.358) for {'criterion': 'gini', 'max_depth': 5, 'min_samples_split': 2}
+0.469 (+/-0.266) for {'criterion': 'gini', 'max_depth': 5, 'min_samples_split': 10}
+0.390 (+/-0.511) for {'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}
+0.445 (+/-0.358) for {'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 10}
+0.317 (+/-0.118) for {'criterion': 'entropy', 'max_depth': 2, 'min_samples_split': 2}
+0.317 (+/-0.118) for {'criterion': 'entropy', 'max_depth': 2, 'min_samples_split': 10}
+0.493 (+/-0.210) for {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 2}
+0.422 (+/-0.336) for {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 10}
+0.310 (+/-0.256) for {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 2}
+0.481 (+/-0.213) for {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 10}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 65.3846
+Precision..: 47.8297
+Recall.....: 51.6667
+F1-Score...: 48.7576
+
+                                precision    recall  f1-score   support
+
+            Augochloropsis_sp1       0.70      0.88      0.78         8
+            Augochloropsis_sp2       0.00      0.00      0.00         0
+                  Bombus_morio       0.71      1.00      0.83         5
+             Bombus_pauloensis       0.50      0.20      0.29         5
+               Centris_tarsata       1.00      1.00      1.00         1
+           Centris_trigonoides       1.00      1.00      1.00         6
+            Exomalopsis_analis       0.33      0.50      0.40         4
+             Exomalopsis_minor       0.00      0.00      0.00         4
+              Melipona_bicolor       0.88      0.88      0.88         8
+       Melipona_quadrifasciata       0.67      0.67      0.67         3
+Pseudoalglochloropsis_graminea       0.00      0.00      0.00         2
+          Xylocopa_nigrocincta       0.43      0.60      0.50         5
+             Xylocopa_suspecta       0.00      0.00      0.00         1
+
+                      accuracy                           0.65        52
+                     macro avg       0.48      0.52      0.49        52
+                  weighted avg       0.60      0.65      0.61        52
+
+
+# Tuning hyper-parameters for f1_macro
+
+Best parameters set found on development set:
+
+{'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}
+
+Grid scores on development set:
+
+0.160 (+/-0.155) for {'criterion': 'gini', 'max_depth': 2, 'min_samples_split': 2}
+0.188 (+/-0.183) for {'criterion': 'gini', 'max_depth': 2, 'min_samples_split': 10}
+0.344 (+/-0.397) for {'criterion': 'gini', 'max_depth': 5, 'min_samples_split': 2}
+0.329 (+/-0.339) for {'criterion': 'gini', 'max_depth': 5, 'min_samples_split': 10}
+0.355 (+/-0.402) for {'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 2}
+0.325 (+/-0.348) for {'criterion': 'gini', 'max_depth': 10, 'min_samples_split': 10}
+0.197 (+/-0.136) for {'criterion': 'entropy', 'max_depth': 2, 'min_samples_split': 2}
+0.212 (+/-0.090) for {'criterion': 'entropy', 'max_depth': 2, 'min_samples_split': 10}
+0.247 (+/-0.238) for {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 2}
+0.302 (+/-0.342) for {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 10}
+0.339 (+/-0.089) for {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 2}
+0.329 (+/-0.294) for {'criterion': 'entropy', 'max_depth': 10, 'min_samples_split': 10}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+Acurácia...: 65.3846
+Precision..: 50.2137
+Recall.....: 56.2821
+F1-Score...: 49.1646
+
+                                precision    recall  f1-score   support
+
+            Augochloropsis_sp1       0.75      0.38      0.50         8
+                  Bombus_morio       1.00      0.80      0.89         5
+             Bombus_pauloensis       0.75      0.60      0.67         5
+               Centris_tarsata       0.33      1.00      0.50         1
+           Centris_trigonoides       1.00      0.67      0.80         6
+               Eulaema_nigrita       0.00      0.00      0.00         0
+            Exomalopsis_analis       0.44      1.00      0.62         4
+             Exomalopsis_minor       0.00      0.00      0.00         4
+              Melipona_bicolor       0.88      0.88      0.88         8
+       Melipona_quadrifasciata       0.38      1.00      0.55         3
+Pseudoalglochloropsis_graminea       0.00      0.00      0.00         2
+          Xylocopa_nigrocincta       1.00      1.00      1.00         5
+             Xylocopa_suspecta       0.00      0.00      0.00         1
+
+                      accuracy                           0.65        52
+                     macro avg       0.50      0.56      0.49        52
+                  weighted avg       0.69      0.65      0.64        52
+
+
