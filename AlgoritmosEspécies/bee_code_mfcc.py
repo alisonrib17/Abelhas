@@ -31,6 +31,12 @@ from sklearn.feature_selection import SelectKBest, SelectPercentile, chi2
 import warnings
 warnings.filterwarnings('ignore')
 
+especies = ['Augochloropsis_sp1', 'Augochloropsis_sp2', 'Augochloropsis_brachycephala', 'Bombus_morio', 
+		'Bombus_pauloensis', 'Centris_tarsata', 'Centris_trigonoides', 'Eulaema_nigrita', 'Exomalopsis_analis', 
+		'Exomalopsis_minor', 'Melipona_bicolor', 'Melipona_quadrifasciata', 'Pseudoalglochloropsis_graminea', 
+		'Xylocopa_nigrocincta', 'Xylocopa_suspecta']
+
+
 def salva_modelo(modelo, nome_arq):
 	filename = '/home/alison/Documentos/Projeto/modelos/' + nome_arq
 	pickle.dump(modelo, open(filename, 'wb'))
@@ -74,12 +80,13 @@ def treino_teste(matriz, classes, modelo, tuned_parameters):
 		print()
 		print(metrics.classification_report(y_true, y_pred))
 		print()
-	#fig = plt.figure(num=None, figsize=(5, 5), dpi=80, facecolor='w', edgecolor='k')
-	#tab_acertos = sns.heatmap(pd.crosstab(classes, pred, rownames=['True'], colnames=['Predicted'], margins=True), 
-	#	cmap="YlGnBu", annot=True, annot_kws={'size':14}, cbar=False, square=True)
-	#tab_acertos.set_xticklabels(tab_acertos.get_xticklabels(), rotation=45) 
+		print(pd.crosstab(y_true, y_pred, rownames=['True'], colnames=['Predicted'], margins=True))
+	fig = plt.figure(num=None, figsize=(5, 5), dpi=80, facecolor='w', edgecolor='k')
+	tab_acertos = sns.heatmap(pd.crosstab(y_true, y_pred, rownames=['True'], colnames=['Predicted'], margins=True), 
+		cmap="YlGnBu", annot=True, annot_kws={'size':14}, cbar=False, square=True)
+	tab_acertos.set_xticklabels(tab_acertos.get_xticklabels(), rotation=45) 
 	#tab_acertos.get_figure().savefig('heatmap.jpeg')
-	#plt.show()
+	plt.show()
 
 	return clf	
 
@@ -164,10 +171,6 @@ def read_dataset(zumbido):
 	return matriz, especies_list #classes
 
 def main(algoritmo, zumbido):
-	especies = ['Augochloropsis_sp1', 'Augochloropsis_sp2', 'Augochloropsis_brachycephala', 'Bombus_morio', 
-		'Bombus_pauloensis', 'Centris_tarsata', 'Centris_trigonoides', 'Eulaema_nigrita', 'Exomalopsis_analis', 
-		'Exomalopsis_minor', 'Melipona_bicolor', 'Melipona_quadrifasciata', 'Pseudoalglochloropsis_graminea', 
-		'Xylocopa_nigrocincta', 'Xylocopa_suspecta']
 
 	matriz, classes = read_dataset(zumbido)
 	

@@ -31,6 +31,8 @@ from sklearn.feature_selection import SelectKBest, SelectPercentile, chi2
 import warnings
 warnings.filterwarnings('ignore')
 
+genero = ['Augchloropsis', 'Bombus', 'Centris', 'Eulaema', 'Exomalopis', 'Melipona', 'Pseudoalglochloropsi', 'Xylocopa']
+
 def salva_modelo(modelo, nome_arq):
 	filename = '/home/alison/Documentos/Projeto/modelos_gen/' + nome_arq
 	pickle.dump(modelo, open(filename, 'wb'))
@@ -75,7 +77,7 @@ def treino_teste(matriz, classes, modelo, tuned_parameters):
 		print(metrics.classification_report(y_true, y_pred))
 		print()
 	#fig = plt.figure(num=None, figsize=(5, 5), dpi=80, facecolor='w', edgecolor='k')
-	#tab_acertos = sns.heatmap(pd.crosstab(classes, pred, rownames=['True'], colnames=['Predicted'], margins=True), 
+	#tab_acertos = sns.heatmap(pd.crosstab(y_true, y_pred, rownames=['True'], colnames=['Predicted'], margins=True), 
 	#	cmap="YlGnBu", annot=True, annot_kws={'size':14}, cbar=False, square=True)
 	#tab_acertos.set_xticklabels(tab_acertos.get_xticklabels(), rotation=45) 
 	#tab_acertos.get_figure().savefig('heatmap.jpeg')
@@ -164,7 +166,6 @@ def read_dataset(zumbido):
 	return matriz, especies_list #classes
 
 def main(algoritmo, zumbido):
-	genero = ['Augchloropsis', 'Bombus', 'Centris', 'Eulaema', 'Exomalopis', 'Melipona', 'Pseudoalglochloropsi', 'Xylocopa']
 
 	matriz, classes = read_dataset(zumbido)
 	
